@@ -1,68 +1,250 @@
 <?php
 /** @var $block \Ecommerce360\PriceComparison\Block\PriceComparison */
 $comparisonData = $block->getComparisonData();
+
+// Si no hay datos, mostramos un mensaje
+if (empty($comparisonData)) : ?>
+    <p>No price comparison data available for this product.</p>
+    <?php
+    return;
+endif;
 ?>
 
-<?php if (!empty($comparisonData)) : ?>
-    <div class="container my-4">
-        <h2 class="mb-3">Price Comparison</h2>
-        <ul class="list-group">
-            <?php foreach ($comparisonData as $item): ?>
-                <li class="list-group-item">
-                    <!-- Fila principal -->
-                    <div class="row align-items-start">
-                        
-                        <!-- Columna: Tienda (Dominio + Nombre) -->
-                        <div class="col-12 col-md-3 mb-2">
-                            <strong class="d-block">
-                                <?php echo $block->escapeHtml($item['store_domain']); ?>
-                            </strong>
-                            <!-- Puedes mostrar el nombre y envío en líneas separadas -->
-                            <?php if (!empty($item['store_name'])): ?>
-                                <small class="text-muted d-block">
-                                    Store Name: <?php echo $block->escapeHtml($item['store_name']); ?>
-                                </small>
-                            <?php endif; ?>
+<!-- CSS de Bootstrap 4 (si no está ya incluido en tu tema) -->
+<link rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
-                            <?php if (!empty($item['store_url'])): ?>
-                                <small class="d-block">
-                                    URL: <?php echo $block->escapeUrl($item['store_url']); ?>
-                                </small>
-                            <?php endif; ?>
+<div class="container my-4">
+    <?php foreach ($comparisonData as $item): 
+        // Preparar variables locales con la data
+        // Ajusta según los nombres reales de tus campos:
+        $storeId           = $item['store_id'];
+        $storeName         = $item['store_name'];
+        $storeLogo         = $item['store_logo'];
+        $storeDescription  = $item['store_description'];
+        $paymentMethods    = $item['payment_methods'];
+        $deliveryOptions   = $item['delivery_options'];
+        $storeRating       = $item['store_rating'];   // Ej: 4.5
+        $ratingCount       = $item['rating_count'];   // Ej: 32
+        $shippingInfo      = $item['shipping_info'];  // Ej: "S/ 5.99 envío, 1-3 días"
+        $productName       = $item['store_productname'];
+        $productPrice      = $item['min_price'];      // Ej: 119.00
+        $productUrl        = $item['link_url'];
+        
+        // Generar un array para pasarlo al modal via JSON
+        $storeData = [
+            'store_id'         => $storeId,
+            'name'             => $storeName,
+            'logo'             => $storeLogo,
+            'description'      => $storeDescription,
+            'payment_methods'  => $paymentMethods,
+            'delivery_options' => $deliveryOptions,
+            'rating'           => $storeRating,
+            'rating_count'     => $ratingCount,
+            'shipping_info'    => $shippingInfo,
+            'product_name'     => $productName,
+            'product_price'    => 'S/ ' . number_format($productPrice, 2),
+            'product_url'      => $productUrl
+        ];
+        
+        // Convertir a JSON para usar en el onclick
+        $storeDataJson = json_encode($storeData);
+    ?>
+    
+    <!-- Fila/Row para cada tienda -->
+    <div class="row align-items-center border rounded p-2 mb-3"
+         style="cursor: pointer;"
+         onclick="window.open('<?php echo $block->escapeUrl($productUrl); ?>', '_blank')">
 
-                            <?php if (!empty($item['shipping_info'])): ?>
-                                <small class="d-block">
-                                    Shipping: <?php echo $block->escapeHtml($item['shipping_info']); ?>
-                                </small>
-                            <?php endif; ?>
-                        </div>
+        <!-- Columna: Logo -->
+        <div class="col-auto">
+            <img src="<?php echo $block->escapeUrl($storeLogo); ?>"
+                 alt="<?php echo $block->escapeHtml($storeName); ?> Logo"
+                 class="img-fluid rounded-circle"
+                 style="max-width: 40px;">
+        </div>
 
-                        <!-- Columna: Nombre del producto -->
-                        <div class="col-12 col-md-4 mb-2">
-                            <?php echo $block->escapeHtml($item['store_productname']); ?>
-                        </div>
+        <!-- Columna: Nombre de la tienda + flecha -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <strong class="mr-2"><?php echo $block->escapeHtml($storeName); ?></strong>
+                
+                <!-- Botón flecha para abrir modal (evita la propagación del click) -->
+                <button type="button"
+                        class="btn btn-link p-0"
+                        onclick="event.stopPropagation(); openStoreModal(this);"
+                        data-store='<?php echo htmlspecialchars($storeDataJson, ENT_QUOTES, 'UTF-8'); ?>'>
+                    ▾
+                </button>
+            </div>
+            
+            <!-- Nombre del producto (enlace) -->
+            <a href="<?php echo $block->escapeUrl($productUrl); ?>"
+               target="_blank"
+               class="text-decoration-none text-primary">
+               <?php echo $block->escapeHtml($productName); ?>
+            </a>
+        </div>
 
-                        <!-- Columna: Precio -->
-                        <div class="col-12 col-md-2 mb-2">
-                            <span class="text-primary font-weight-bold">
-                                <?php echo $block->escapeHtml($item['min_price']); ?>
-                            </span>
-                        </div>
-
-                        <!-- Columna: Botón "Visit Store" -->
-                        <div class="col-12 col-md-3 mb-2 text-md-right">
-                            <a href="<?php echo $block->escapeUrl($item['link_url']); ?>"
-                               class="btn btn-sm btn-outline-primary" target="_blank">
-                                Visit Store
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <!-- Columna: Envío y Precio -->
+        <div class="col-auto text-right">
+            <div class="text-muted">
+                <?php echo $block->escapeHtml($shippingInfo); ?>
+            </div>
+            <div class="font-weight-bold">
+                S/ <?php echo number_format($productPrice, 2); ?>
+            </div>
+        </div>
     </div>
-<?php else: ?>
-    <div class="container my-4">
-        <p>No price comparison data available for this product.</p>
+    <?php endforeach; ?>
+</div>
+
+
+<!-- Modal (único) para mostrar información de la tienda -->
+<div class="modal fade" id="storeInfoModal" tabindex="-1" role="dialog" aria-labelledby="storeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- HEADER DEL MODAL -->
+      <div class="modal-header">
+        <img src="" 
+             alt="Logo de la Empresa"
+             id="modalStoreLogo"
+             class="img-fluid rounded-circle mr-3"
+             style="max-width: 40px;">
+        <h5 class="modal-title" id="storeModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- CUERPO DEL MODAL -->
+      <div class="modal-body">
+        <p id="modalStoreDescription"></p>
+
+        <p><strong>Métodos de pago:</strong> 
+          <span id="modalPaymentMethods"></span>
+        </p>
+
+        <p><strong>Opciones de entrega:</strong> 
+          <span id="modalDeliveryOptions"></span>
+        </p>
+
+        <p><strong>Envío:</strong> 
+          <span id="modalShippingInfo"></span>
+        </p>
+
+        <!-- Rating (opcional) -->
+        <div id="modalRatingSection" class="d-none">
+          <strong>Valoración:</strong>
+          <span id="modalRatingStars" class="text-warning"></span>
+          <span id="modalRatingVotes" class="ml-1"></span>
+        </div>
+
+        <hr>
+
+        <p>
+          <strong>Producto:</strong>
+          <span id="modalProductName"></span>
+        </p>
+        <p>
+          <strong>Precio:</strong> 
+          <span id="modalProductPrice"></span>
+        </p>
+        <span id="modalProductStock" class="badge badge-success d-none">En stock</span>
+      </div>
+
+      <!-- FOOTER DEL MODAL -->
+      <div class="modal-footer">
+        <a href="#" id="modalStoreLink" target="_blank" class="btn btn-primary">
+          Comprar en <span id="modalStoreNameFooter"></span>
+        </a>
+      </div>
+
     </div>
-<?php endif; ?>
+  </div>
+</div>
+
+
+<!-- JS de Bootstrap y dependencias (si no están ya en tu tema) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+/**
+ * openStoreModal: Se llama al hacer clic en la flecha.
+ * Carga los datos (ya están en el data-store del botón) y los muestra en el modal.
+ */
+function openStoreModal(btn) {
+  // Extraer datos en formato JSON del atributo data-store
+  var storeData = btn.getAttribute('data-store');
+  if (!storeData) return;
+
+  var storeObj = JSON.parse(storeData);
+
+  // Asignar datos al modal
+  document.getElementById('modalStoreLogo').src = storeObj.logo || '';
+  document.getElementById('storeModalLabel').textContent = storeObj.name || '';
+  document.getElementById('modalStoreDescription').textContent = storeObj.description || '';
+  document.getElementById('modalPaymentMethods').textContent = storeObj.payment_methods || '';
+  document.getElementById('modalDeliveryOptions').textContent = storeObj.delivery_options || '';
+  document.getElementById('modalShippingInfo').textContent = storeObj.shipping_info || '';
+
+  // Rating
+  var ratingSection = document.getElementById('modalRatingSection');
+  if (storeObj.rating && storeObj.rating_count) {
+    ratingSection.classList.remove('d-none');
+    document.getElementById('modalRatingStars').innerHTML = generateStars(storeObj.rating);
+    document.getElementById('modalRatingVotes').textContent = '(' + storeObj.rating_count + ' votos)';
+  } else {
+    ratingSection.classList.add('d-none');
+  }
+
+  // Producto
+  document.getElementById('modalProductName').textContent = storeObj.product_name || '';
+  document.getElementById('modalProductPrice').textContent = storeObj.product_price || '';
+  
+  // Stock (si deseas manejarlo)
+  var stockBadge = document.getElementById('modalProductStock');
+  // Aquí podrías verificar si hay un campo storeObj.in_stock
+  // Ej: if (storeObj.in_stock) { ... } else { ... }
+  stockBadge.classList.add('d-none'); // Por defecto oculto o a tu lógica
+
+  // Enlace de compra
+  var link = document.getElementById('modalStoreLink');
+  link.href = storeObj.product_url || '#';
+  document.getElementById('modalStoreNameFooter').textContent = storeObj.name || '';
+
+  // Mostrar modal
+  $('#storeInfoModal').modal('show');
+}
+
+/**
+ * generateStars: Genera un string HTML con estrellas llenas/vacías/medias.
+ * rating: número de 0 a 5 (p.ej. 4.5)
+ */
+function generateStars(rating) {
+  var starsHTML = '';
+  var fullStars = Math.floor(rating);  // Estrellas completas
+  var hasHalfStar = (rating % 1 !== 0); // Media estrella
+  
+  // Estrellas llenas
+  for (var i = 0; i < fullStars; i++) {
+    starsHTML += '&#9733;'; // ★
+  }
+  
+  // Media estrella
+  if (hasHalfStar) {
+    starsHTML += '&#189;'; // ½
+  }
+  
+  // Estrellas vacías
+  var remaining = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  for (var j = 0; j < remaining; j++) {
+    starsHTML += '&#9734;'; // ☆
+  }
+  
+  return starsHTML;
+}
+</script>
