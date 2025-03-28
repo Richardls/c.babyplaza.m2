@@ -11,11 +11,9 @@ endif;
 ?>
 
 <!-- CSS de Bootstrap 4 (si no está ya incluido en tu tema) -->
-<link rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
 <div class="container my-4">
-    <?php foreach ($comparisonData as $item): 
+    <?php foreach ($comparisonData as $item):
         // Preparar variables locales con la data
         // Ajusta según los nombres reales de tus campos:
         $storeId           = $item['store_id'];
@@ -30,7 +28,7 @@ endif;
         $productName       = $item['store_productname'];
         $productPrice      = $item['min_price'];      // Ej: 119.00
         $productUrl        = $item['link_url'];
-        
+
         // Generar un array para pasarlo al modal via JSON
         $storeData = [
             'store_id'         => $storeId,
@@ -46,11 +44,11 @@ endif;
             'product_price'    => 'S/ ' . number_format($productPrice, 2),
             'product_url'      => $productUrl
         ];
-        
+
         // Convertir a JSON para usar en el onclick
         $storeDataJson = json_encode($storeData);
     ?>
-    
+
     <!-- Fila/Row para cada tienda -->
     <div class="row align-items-center border rounded p-2 mb-3"
          style="cursor: pointer;"
@@ -68,7 +66,7 @@ endif;
         <div class="col">
             <div class="d-flex align-items-center">
                 <strong class="mr-2"><?php echo $block->escapeHtml($storeName); ?></strong>
-                
+
                 <!-- Botón flecha para abrir modal (evita la propagación del click) -->
                 <button type="button"
                         class="btn btn-link p-0"
@@ -77,7 +75,7 @@ endif;
                     ▾
                 </button>
             </div>
-            
+
             <!-- Nombre del producto (enlace) -->
             <a href="<?php echo $block->escapeUrl($productUrl); ?>"
                target="_blank"
@@ -107,7 +105,7 @@ endif;
 
       <!-- HEADER DEL MODAL -->
       <div class="modal-header">
-        <img src="" 
+        <img src=""
              alt="Logo de la Empresa"
              id="modalStoreLogo"
              class="img-fluid rounded-circle mr-3"
@@ -122,15 +120,15 @@ endif;
       <div class="modal-body">
         <p id="modalStoreDescription"></p>
 
-        <p><strong>Métodos de pago:</strong> 
+        <p><strong>Métodos de pago:</strong>
           <span id="modalPaymentMethods"></span>
         </p>
 
-        <p><strong>Opciones de entrega:</strong> 
+        <p><strong>Opciones de entrega:</strong>
           <span id="modalDeliveryOptions"></span>
         </p>
 
-        <p><strong>Envío:</strong> 
+        <p><strong>Envío:</strong>
           <span id="modalShippingInfo"></span>
         </p>
 
@@ -148,7 +146,7 @@ endif;
           <span id="modalProductName"></span>
         </p>
         <p>
-          <strong>Precio:</strong> 
+          <strong>Precio:</strong>
           <span id="modalProductPrice"></span>
         </p>
         <span id="modalProductStock" class="badge badge-success d-none">En stock</span>
@@ -166,7 +164,6 @@ endif;
 </div>
 
 
-<!-- JS de Bootstrap y dependencias (si no están ya en tu tema) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -204,7 +201,7 @@ function openStoreModal(btn) {
   // Producto
   document.getElementById('modalProductName').textContent = storeObj.product_name || '';
   document.getElementById('modalProductPrice').textContent = storeObj.product_price || '';
-  
+
   // Stock (si deseas manejarlo)
   var stockBadge = document.getElementById('modalProductStock');
   // Aquí podrías verificar si hay un campo storeObj.in_stock
@@ -228,23 +225,23 @@ function generateStars(rating) {
   var starsHTML = '';
   var fullStars = Math.floor(rating);  // Estrellas completas
   var hasHalfStar = (rating % 1 !== 0); // Media estrella
-  
+
   // Estrellas llenas
   for (var i = 0; i < fullStars; i++) {
     starsHTML += '&#9733;'; // ★
   }
-  
+
   // Media estrella
   if (hasHalfStar) {
     starsHTML += '&#189;'; // ½
   }
-  
+
   // Estrellas vacías
   var remaining = 5 - fullStars - (hasHalfStar ? 1 : 0);
   for (var j = 0; j < remaining; j++) {
     starsHTML += '&#9734;'; // ☆
   }
-  
+
   return starsHTML;
 }
 </script>
