@@ -2,16 +2,23 @@
 /** @var $block \Ecommerce360\PriceComparison\Block\PriceComparison */
 $comparisonData = $block->getComparisonData();
 
+// Salimos si no hay datos
 if (empty($comparisonData)) : ?>
     <p>No price comparison data available for this product.</p>
-    <?php return; endif;
+    <?php return;
+endif;
+
+// Obtener la URL base de 'pub/media/'
+$mediaBaseUrl = $block->getStoreManager()
+    ->getStore()
+    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
 ?>
 
 <div class="container my-4">
     <?php foreach ($comparisonData as $item): 
         $storeId           = $item['store_id'];
         $storeName         = $item['store_name'];
-        $storeLogo         = $item['store_logo'];
+        $storeLogo         = $item['store_logo']; // Ruta relativa, p. ej. 'store_logos/infanti-logo.png'
         $storeDescription  = $item['store_description'];
         $paymentMethods    = $item['payment_methods'];
         $deliveryOptions   = $item['delivery_options'];
@@ -22,10 +29,15 @@ if (empty($comparisonData)) : ?>
         $productPrice      = $item['min_price'];      
         $productUrl        = $item['link_url'];
         
+        // Construimos la URL completa del logo
+        // Asegúrate de que $storeLogo no esté vacío o no contenga rutas erróneas
+        $storeLogoUrl = $mediaBaseUrl . $storeLogo;
+        
+        // Datos para el modal en JSON
         $storeData = [
             'store_id'         => $storeId,
             'name'             => $storeName,
-            'logo'             => $storeLogo,
+            'logo'             => $storeLogoUrl,  // Usamos la URL completa
             'description'      => $storeDescription,
             'payment_methods'  => $paymentMethods,
             'delivery_options' => $deliveryOptions,
@@ -47,7 +59,7 @@ if (empty($comparisonData)) : ?>
 
         <!-- Logo -->
         <div class="col-auto">
-            <img src="<?php echo $block->escapeUrl($storeLogo); ?>"
+            <img src="<?php echo $block->escapeUrl($storeLogoUrl); ?>"
                  alt="<?php echo $block->escapeHtml($storeName); ?> Logo"
                  style="max-width: 40px; border-radius: 50%;">
         </div>
@@ -101,7 +113,9 @@ if (empty($comparisonData)) : ?>
     <p><strong>Producto:</strong> <span id="modalProductName"></span></p>
     <p><strong>Precio:</strong> <span id="modalProductPrice"></span></p>
     <div style="text-align: right;">
-      <a href="#" id="modalStoreLink" target="_blank" style="background: #007bff; color: #fff; padding: 8px 12px; text-decoration: none; border-radius: 3px;">Comprar en <span id="modalStoreNameFooter"></span></a>
+      <a href="#" id="modalStoreLink" target="_blank" style="background: #007bff; color: #fff; padding: 8px 12px; text-decoration: none; border-radius: 3px;">
+        Comprar en <span id="modalStoreNameFooter"></span>
+      </a>
     </div>
   </div>
 </div>
@@ -148,7 +162,7 @@ document.querySelector('.custom-modal-close').addEventListener('click', function
 // Cerrar modal si se hace clic fuera del contenido
 window.addEventListener('click', function(event) {
   var modal = document.getElementById('storeInfoModal');
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = 'none';
   }
 });
