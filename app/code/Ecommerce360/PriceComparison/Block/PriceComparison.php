@@ -53,6 +53,7 @@ class PriceComparison extends Template
                 'store_name',
                 'store_url',
                 'store_logo',
+                'store_rating',
                 'shipping_info',
                 'payment_methods',
                 'delivery_options',
