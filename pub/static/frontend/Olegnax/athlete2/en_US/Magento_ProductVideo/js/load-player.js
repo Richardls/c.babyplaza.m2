@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-product-video/view/frontend/web/js/load-player.js

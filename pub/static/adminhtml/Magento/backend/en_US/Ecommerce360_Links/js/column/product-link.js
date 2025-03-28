@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/app/code/Ecommerce360/Links/view/adminhtml/web/js/column/product-link.js

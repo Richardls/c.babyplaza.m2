@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-translation/view/base/web/js/mage-translation-dictionary.js

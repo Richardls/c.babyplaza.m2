@@ -1,0 +1,68 @@
+<?php
+/** @var $block \Ecommerce360\PriceComparison\Block\PriceComparison */
+$comparisonData = $block->getComparisonData();
+?>
+
+<?php if (!empty($comparisonData)) : ?>
+    <div class="container my-4">
+        <h2 class="mb-3">Price Comparison</h2>
+        <ul class="list-group">
+            <?php foreach ($comparisonData as $item): ?>
+                <li class="list-group-item">
+                    <!-- Fila principal -->
+                    <div class="row align-items-start">
+                        
+                        <!-- Columna: Tienda (Dominio + Nombre) -->
+                        <div class="col-12 col-md-3 mb-2">
+                            <strong class="d-block">
+                                <?php echo $block->escapeHtml($item['store_domain']); ?>
+                            </strong>
+                            <!-- Puedes mostrar el nombre y envío en líneas separadas -->
+                            <?php if (!empty($item['store_name'])): ?>
+                                <small class="text-muted d-block">
+                                    Store Name: <?php echo $block->escapeHtml($item['store_name']); ?>
+                                </small>
+                            <?php endif; ?>
+
+                            <?php if (!empty($item['store_url'])): ?>
+                                <small class="d-block">
+                                    URL: <?php echo $block->escapeUrl($item['store_url']); ?>
+                                </small>
+                            <?php endif; ?>
+
+                            <?php if (!empty($item['shipping_info'])): ?>
+                                <small class="d-block">
+                                    Shipping: <?php echo $block->escapeHtml($item['shipping_info']); ?>
+                                </small>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Columna: Nombre del producto -->
+                        <div class="col-12 col-md-4 mb-2">
+                            <?php echo $block->escapeHtml($item['store_productname']); ?>
+                        </div>
+
+                        <!-- Columna: Precio -->
+                        <div class="col-12 col-md-2 mb-2">
+                            <span class="text-primary font-weight-bold">
+                                <?php echo $block->escapeHtml($item['min_price']); ?>
+                            </span>
+                        </div>
+
+                        <!-- Columna: Botón "Visit Store" -->
+                        <div class="col-12 col-md-3 mb-2 text-md-right">
+                            <a href="<?php echo $block->escapeUrl($item['link_url']); ?>"
+                               class="btn btn-sm btn-outline-primary" target="_blank">
+                                Visit Store
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php else: ?>
+    <div class="container my-4">
+        <p>No price comparison data available for this product.</p>
+    </div>
+<?php endif; ?>

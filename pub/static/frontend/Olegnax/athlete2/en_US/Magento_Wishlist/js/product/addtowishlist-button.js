@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-wishlist/view/frontend/web/js/product/addtowishlist-button.js

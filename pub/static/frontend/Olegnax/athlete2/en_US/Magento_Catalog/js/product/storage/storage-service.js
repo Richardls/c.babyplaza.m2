@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-catalog/view/frontend/web/js/product/storage/storage-service.js

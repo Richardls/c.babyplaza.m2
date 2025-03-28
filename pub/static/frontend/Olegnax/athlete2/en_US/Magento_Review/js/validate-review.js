@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-review/view/frontend/web/js/validate-review.js

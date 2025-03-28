@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+    <router id="admin">
+        <route id="tiendas" frontName="tiendas">
+            <module name="Ecommerce360_Tiendas" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

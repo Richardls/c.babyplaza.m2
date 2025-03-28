@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-re-captcha-frontend-ui/view/frontend/web/js/registry.js

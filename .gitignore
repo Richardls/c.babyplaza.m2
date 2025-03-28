@@ -1,0 +1,22 @@
+# Excluir archivos de configuración sensibles
+/app/etc/env.php
+
+# Excluir carpetas de cache, logs y otros generados por Magento
+/var/*
+!/var/.htaccess
+
+# Excluir archivos y carpetas generados
+/pub/static/*
+!/pub/static/.htaccess
+/pub/media/*
+!/pub/media/.htaccess
+/generated/*
+
+# Opcional: excluir dependencias instaladas (si usas Composer, puedes regenerarlas)
+vendor/
+
+# Excluir archivos de entorno de desarrollo
+/node_modules/
+.idea/
+.vscode/
+*.log

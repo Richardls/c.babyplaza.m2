@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/app/code/Olegnax/Quickview/view/frontend/web/js/init.js

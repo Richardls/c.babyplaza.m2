@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/lib/web/jquery/ui-modules/effects/effect-blind.js

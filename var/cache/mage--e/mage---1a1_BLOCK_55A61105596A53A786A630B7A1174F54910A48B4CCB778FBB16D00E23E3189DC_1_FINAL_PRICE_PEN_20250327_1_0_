@@ -1,0 +1,15 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1743135013;s:6:"expire";i:1743221413;s:4:"tags";s:45:"1a1_BLOCK_HTML,1a1_CAT_P_1,1a1_CAT_P,1a1_MAGE";}
+<div class="price-box price-final_price" data-role="priceBox" data-product-id="1" data-price-box="product-id-1">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+         itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <span  id="product-price-1"                data-price-amount="99"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">PEN 99.00</span></span>
+                <meta itemprop="price" content="99" />
+        <meta itemprop="priceCurrency" content="PEN" />
+    </span>
+
+</div>

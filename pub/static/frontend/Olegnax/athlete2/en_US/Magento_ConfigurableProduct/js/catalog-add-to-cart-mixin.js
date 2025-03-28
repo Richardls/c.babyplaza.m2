@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-configurable-product/view/frontend/web/js/catalog-add-to-cart-mixin.js

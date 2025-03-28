@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/lib/web/mage/gallery/gallery.js

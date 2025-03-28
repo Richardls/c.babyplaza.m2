@@ -1,0 +1,110 @@
+<?php
+namespace Ecommerce360\Links\Model\ResourceModel\Link\Grid;
+
+use Ecommerce360\Links\Model\ResourceModel\Link\Collection as LinkCollection;
+use Magento\Framework\View\Element\UiComponent\DataProvider\Document as LinkModel;
+
+class Collection extends LinkCollection implements \Magento\Framework\Api\Search\SearchResultInterface
+{
+    protected $aggregations;
+
+    public function __construct(
+        \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
+        \Psr\Log\LoggerInterface $logger,
+        \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,
+        \Magento\Framework\Event\ManagerInterface $eventManager,
+        $mainTable,
+        $eventPrefix,
+        $eventObject,
+        $resourceModel,
+        $model = LinkModel::class,
+        $connection = null,
+        \Magento\Framework\Model\ResourceModel\Db\AbstractDb $resource = null
+    ) {
+        parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $connection, $resource);
+        $this->_eventPrefix = $eventPrefix;
+        $this->_eventObject = $eventObject;
+        $this->_init($model, $resourceModel);
+        $this->setMainTable($mainTable);
+    }
+
+    protected function _initSelect()
+    {
+        parent::_initSelect();
+    
+        // Añadimos el JOIN con la tabla ecommerce360_tiendas
+        $this->getSelect()->joinLeft(
+    ['tienda' => $this->getTable('ecommerce360_tiendas')],
+    'main_table.store_domain = tienda.store_url', // Ajusta si es store_url o la columna que desees para la unión
+      [
+        'store_name',
+        'store_url',
+        'store_logo',
+        'shipping_info',
+        'payment_methods',
+        'delivery_options',
+        'rating',
+        'rating_count',
+        'store_description'
+      ]
+    );
+
+
+        // Join con la tabla de productos para obtener el nombre del producto
+        $this->getSelect()->joinLeft(
+            ['product' => $this->getTable('catalog_product_entity')],
+            'main_table.sku_magento = product.sku',
+            []
+        )->joinLeft(
+            ['product_name' => $this->getTable('catalog_product_entity_varchar')],
+            'product.entity_id = product_name.entity_id AND product_name.attribute_id = (SELECT attribute_id FROM eav_attribute WHERE attribute_code = "name" AND entity_type_id = 4)',
+            ['product_name' => 'value']
+        );
+
+    }
+    
+
+    public function getAggregations()
+    {
+        return $this->aggregations;
+    }
+
+    public function setAggregations($aggregations)
+    {
+        $this->aggregations = $aggregations;
+    }
+
+    public function getAllIds($limit = null, $offset = null)
+    {
+        return $this->getConnection()->fetchCol(
+            $this->_getAllIdsSelect($limit, $offset),
+            $this->_bindParams
+        );
+    }
+
+    public function getSearchCriteria()
+    {
+        return null;
+    }
+
+    public function setSearchCriteria(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria = null)
+    {
+        return $this;
+    }
+
+    public function getTotalCount()
+    {
+        return $this->getSize();
+    }
+
+    public function setTotalCount($totalCount)
+    {
+        return $this;
+    }
+
+    public function setItems(array $items = null)
+    {
+        return $this;
+    }
+    
+}

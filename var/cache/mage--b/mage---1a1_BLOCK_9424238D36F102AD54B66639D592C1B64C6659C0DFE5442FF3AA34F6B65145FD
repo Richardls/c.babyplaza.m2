@@ -1,0 +1,92 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1743135078;s:6:"expire";i:1743221478;s:4:"tags";s:45:"1a1_BLOCK_HTML,1a1_CAT_P_1,1a1_CAT_P,1a1_MAGE";}
+		<div id="ox_productsbycategory_6" class="block widget block-products-list list products-grid__buttons-below&#x20;products-widget__list&#x20;products-widget__list2&#x20;product-columns-1&#x20;product-columns-l-1&#x20;product-columns-m-1&#x20;product-columns-s-1&#x20;title--align-&#x20;&#x20;&#x20;">
+				<div class="block-content">
+			<div class="products-list list">
+				<ol class="product-items row no-gutters widget-product-list">
+																<li class="product-item">																		<div class="product-item-info d-flex align-items-center ">
+														<div class="list-product-number d-flex align-items-center justify-content-center a-center"><span class="h1">1</span></div>
+														<div class="product-grid__image-wrapper">
+								<a href="https://c.babyplaza.com.pe/prueba-de-producto.html" class="product-item-photo">
+									<span class="product-image-container product-image-container-1-100-100">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="https://c.babyplaza.com.pe/media/catalog/product/cache/bfb2d809957b4bc60cb03cd5adb3e03a/s/c/scf332-01-extractor-electrico-3_3.jpg"
+            loading="lazy"
+            width="100"
+            height="100"
+            alt="Prueba&#x20;de&#x20;Producto"/></span>
+</span>
+<style>.product-image-container-1-100-100 {
+    width: 100px;
+    height: auto;
+    aspect-ratio: 100 / 100;
+}
+.product-image-container-1-100-100 span.product-image-wrapper {
+    height: 100%;
+    width: 100%;
+}
+@supports not (aspect-ratio: auto) { 
+    .product-image-container-1-100-100 span.product-image-wrapper {
+        padding-bottom: 100%;
+    }
+}</style>	
+								</a>
+															</div>
+							<div class="product-grid-overlay"></div>
+							<div class="product-item-details d-flex flex-wrap align-items-center">
+								<div class="product-item__col product-item__col-details">
+																												<strong class="product-item-name">
+											<a title="Prueba de Producto"
+											href="https://c.babyplaza.com.pe/prueba-de-producto.html"
+											class="product-item-link">
+											Prueba de Producto											</a>
+										</strong>
+																												
+										<div class="price-box price-final_price" data-role="priceBox" data-product-id="1" data-price-box="product-id-1">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-1-"                data-price-amount="99"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">PEN 99.00</span></span>
+        </span>
+
+</div>									
+																					
+
+																	</div>
+								<div class="product-item__col product-item__col-right">
+																			<div class="product actions product-item-actions">
+																																				<div class="actions-primary">	
+																												<form data-role="tocart-form" data-product-sku="SKU123" action="https://c.babyplaza.com.pe/checkout/cart/add/uenc/aHR0cHM6Ly9jLmJhYnlwbGF6YS5jb20ucGUv/product/1/" method="post">
+															<input type="hidden" name="product" value="1">
+															<input type="hidden" name="uenc" value="aHR0cHM6Ly9jLmJhYnlwbGF6YS5jb20ucGUvY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0hNNkx5OWpMbUpoWW5sd2JHRjZZUzVqYjIwdWNHVXYvcHJvZHVjdC8xLw~~">
+															<input name="form_key" type="hidden" value="7zDB7rCUGNE10bsz" />															<button type="submit"
+																	title="Add&#x20;to&#x20;Cart"
+																	class="action tocart primary">
+																<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-cart"><use xlink:href="#a2-cart-icon"></use></svg><span>Add to Cart</span>
+															</button>
+														</form>
+													</div>
+																																		
+																					</div>
+										
+								</div>
+							</div>
+						</div>
+
+						</li>									</ol>
+			</div>
+					</div>
+					<script type="text/x-magento-init">
+				{
+				"[data-role=tocart-form], .form.map.checkout": {
+				"catalogAddToCart": {
+				"product_sku": "SKU123"
+				}
+				}
+				}
+			</script>
+			</div>

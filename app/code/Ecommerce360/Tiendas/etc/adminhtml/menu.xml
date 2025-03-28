@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ecommerce360_Tiendas::main_menu" title="EC360" module="Ecommerce360_Tiendas" sortOrder="50" resource="Ecommerce360_Tiendas::main_menu"/>
+        <add id="Ecommerce360_Tiendas::manage_stores" title="Manage Stores" module="Ecommerce360_Tiendas" sortOrder="10" parent="Ecommerce360_Tiendas::main_menu" action="tiendas/index/index" resource="Ecommerce360_Tiendas::manage_stores"/>
+    </menu>
+</config>

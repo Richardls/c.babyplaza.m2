@@ -1,0 +1,144 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1743135077;s:6:"expire";i:1743221477;s:4:"tags";s:23:"1a1_BLOCK_HTML,1a1_MAGE";}
+
+<div id="ox_carousel_8931b" class="block widget owl-carousel ox-carousel ox-nav__simple  ox-dots__a-center ox-dots__p-over ox-dots__s-lines_text ox-dots__overlay ox-progress__p-nav ox-transition__ ox-slider-height__settings"  data-mage-init='{"OXCarousel":{"autoScroll":"3","loop":false,"rewind":true,"lazyLoad":true,"responsive":{"0":{"items":1},"768":{"items":1},"1025":{"items":1},"1160":{"items":1}},"dotsData":true,"dots":true,"nav":true,"progress":true,"autoHeight":false,"autoplayHoverPause":true,"smartSpeed":450}}' >
+						<div id="ox-carousel-slide4-1" class="ox-slide-item -v-center slide-layout-no-container slide-content-2-col -boxed-left slide4 margins-normal align-s-center " style="background-color: rgb(109, 109, 109)" data-dot="<button role='button' class='owl-dot dot'><span class='title'>Weekly Deals</span><span class='progress'></span></button>" >
+									            												<div class="ox-carousel__row">
+						<div class="ox-carousel__col">
+							<div class="ox-carousel__content"><div class="ox-max-width-500">
+						<p style="color: rgb(255 255 255 / 37%);letter-spacing: 5px;">Updates in</p>
+						<div class="title-font">
+<div id="ox_countdown_1a74b0" class="a2-countdown " data-role="OXcountdown" data-mage-init='{"OXcountdown":{
+  "relative":"1", 
+  "endDate":"5", 
+  "endTime":"12", 
+  "timeZone":"0",
+  "timeZoneDiff":"true",
+        "save":"1",
+      "resetPeriod":"180",
+    "daysToHours":"",
+  "loop":"1"
+}}'>
+  	<div class="days">
+    <span class="num">--</span>
+    <span>days</span>  </div>
+  <span class="separator">:</span >  	<div class="hours">
+    <span class="num">--</span>
+    <span>hrs</span>    </div>
+    <span class="separator">:</span >	<div class="minutes">
+    <span class="num">--</span>
+    <span>min</span>  </div>
+  <span class="separator">:</span >	<div class="seconds">
+    <span class="num">--</span>
+    <span>sec</span>  </div>
+  </div>
+<style type="text/css">#ox_countdown_1a74b0.expired > div,#ox_countdown_1a74b0:not(.expired) .expired_text{display: none; }#ox_countdown_1a74b0.a2-countdown{font-size:12px;font-weight:500;color:white;}#ox_countdown_1a74b0.a2-countdown > div{background-color:transparent;}#ox_countdown_1a74b0 .num{font-size:22px;font-weight:600;}#ox_countdown_1a74b0 .separator{font-size:22px;font-weight:600;margin-bottom:10px;}</style></div>
+						<div class="spacer-xs" style="height:25px;">-</div>
+						<h1 class="title">Weekly Deals</h1>
+						<div class="spacer-xxs">-</div>
+						<p class="no-margin big-text reset-text-m" style="font-weight:500">Get massive savings of up to 59% on select tech. Plus, enjoy <a href="#" style="color:#82f4c5; border-bottom:2px solid;">FREE shipping</a> and extra 20% off select accessories with any PC purchase.</p>
+						<div class="spacer-small">-</div>
+						<a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a>
+						</div></div>						</div>
+						<div class="ox-carousel__col">
+															<img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-01.jpg" class="ox-carousel__img " alt="" data-ox-image>														<div class="rubber-tag-m abs-negative abs-v-center a-left gradient-bg title-font" style="font-weight: 600;color: #000000;">
+						<div>up to</div>
+						<div class="-value" style="letter-spacing:-2px">- 40</div>
+						<div class="-desc" style="letter-spacing:0.01em" >off on selected products</div>
+						</div>
+						
+						<style>#ox_hotspotquickview_0a16f.ox-hotspot__item.-pulse:before{background-color:#82f4c5} #ox_hotspotquickview_0a16f .ox-hotspot__tooltip{left: 20px;} #ox_hotspotquickview_0a16f .ox-hotspot__tooltip{width: 200px;}</style>	<div id="ox_hotspotquickview_0a16f" 
+		 class="ox-hotspot__item ox-quickview-button mobile-minimized  -pulse" 
+		 		 data-quickview-url="https://c.babyplaza.com.pe/ox_quickview/catalog_product/view/id/2278/"
+		 		style="height: 40px; min-width: 40px; left: 62%; top: 38%;" >
+		<div class="inner" style="background-color: #82f4c5; border-radius: 20px;">
+						 <span class="ox-hotspot__icon athlete2-icon-plus-small"  >&nbsp;</span>
+												 					<div class="ox-hotspot__tooltip "><div class="a-center">
+<svg viewBox="0 -66 512.00035 512" width="49" xmlns="http://www.w3.org/2000/svg"><path d="m461.285156 226.507812-76.492187-5.464843-50.554688-84.214844-25.273437-42.167969v-11.679687c.007812-12.675781-10.261719-22.957031-22.9375-22.964844-2.839844-.003906-5.65625.523437-8.300782 1.546875l-72.6875 28.039062 5.492188-18.433593c4.335938-15.496094-2.699219-31.921875-16.90625-39.476563l-57.035156-30.640625c-4.148438-2.226562-9.316406-.804687-11.742188 3.230469l-83.660156 133.96875-1.765625-1.023438c-4.226563-2.429687-9.621094-.96875-12.046875 3.257813-.054688.089844-.101562.179687-.152344.273437l-26.191406 49.308594c-2.257812 4.257813-.683594 9.535156 3.53125 11.867188l318.535156 176.550781c1.308594.722656 2.777344 1.101563 4.273438 1.101563h131.664062c29.238282-.027344 52.9375-23.722657 52.964844-52.964844v-45.65625c-.09375-28.609375-22.183594-52.328125-50.714844-54.457032zm-94.941406-1.890624-10.082031 3.363281-78.988281-102.699219 20.304687-15.246094zm-230.691406-204.03125 49.621094 26.632812c6.878906 3.636719 10.316406 11.550781 8.28125 19.058594l-7.292969 24.578125-50.671875-30.386719-17.546875-10.53125zm-52.265625 84.25 4.519531-7.0625 29.042969 21.601562c14.78125 11.097656 22.328125 29.375 19.683593 47.671875l-1.101562 25.511719-78.894531-45.472656zm375.648437 257.097656h-129.394531l-308.964844-171.257813 17.839844-33.542969 292.519531 168.3125c1.34375.773438 2.863282 1.179688 4.414063 1.175782h158.894531c0 19.5-15.808594 35.3125-35.308594 35.3125zm35.308594-52.96875h-156.539062l-60.546876-34.859375 20.355469-20.753907c3.363281-3.527343 3.230469-9.117187-.300781-12.480468-3.457031-3.296875-8.910156-3.242188-12.304688.121094l-23.550781 24.011718-33.546875-19.332031 33.644532-26.914063c3.804687-3.046874 4.421874-8.605468 1.375-12.414062-3.046876-3.804688-8.605469-4.421875-12.410157-1.375l-39.046875 31.242188-28.742187-16.527344 43.609375-36.34375c3.75-3.121094 4.257812-8.6875 1.140625-12.4375-3.121094-3.75-8.691407-4.257813-12.441407-1.140625l-48.621093 40.527343-13.648438-7.855468 1.429688-33.886719c3.269531-24.414063-6.960938-48.679687-26.71875-63.382813l-30.078125-22.363281 11.363281-17.839843 78.140625 46.882812c1.050781.605469 2.214844.980469 3.417969 1.105469.210937 0 .394531.070312.609375.085937.210937.019532.34375.0625.511718.0625 1.089844.003906 2.175782-.195312 3.195313-.589844l89.421875-34.488281c1.636719-.625 3.46875-.410156 4.917969.574219 1.453125.996094 2.316406 2.648438 2.304687 4.414062v9.710938l-31.78125 23.832031c-3.898437 2.929688-4.683594 8.464844-1.753906 12.359375.019531.027344.039062.054688.058594.078125l88.277344 114.761719c2.28125 2.988281 6.214843 4.191406 9.78125 2.992188l24.8125-8.273438 79.328124 5.667969c19.304688 1.429687 34.261719 17.46875 34.335938 36.828125zm0 0"></path><path d="m52.964844 256h-44.136719c-4.875 0-8.828125 3.953125-8.828125 8.828125s3.953125 8.828125 8.828125 8.828125h44.136719c4.875 0 8.828125-3.953125 8.828125-8.828125s-3.953125-8.828125-8.828125-8.828125zm0 0"></path><path d="m0 317.792969c0 4.875 3.953125 8.828125 8.828125 8.828125h114.757813c4.875 0 8.828124-3.953125 8.828124-8.828125s-3.953124-8.828125-8.828124-8.828125h-114.757813c-4.875 0-8.828125 3.953125-8.828125 8.828125zm0 0"></path><path d="m220.691406 361.933594h-211.863281c-4.875 0-8.828125 3.949218-8.828125 8.824218s3.953125 8.828126 8.828125 8.828126h211.863281c4.875 0 8.824219-3.953126 8.824219-8.828126s-3.949219-8.824218-8.824219-8.824218zm0 0"></path></svg>
+<div class="-text -upper">Court Legend Mid Sneakers</div>
+</div></div>
+						 </div>
+	</div>
+						</div>
+					</div>
+															</div>
+					<div id="ox-carousel-slide5-2" class="ox-slide-item -v-center slide-layout-no-container slide-content-2-col slide5 margins-normal align-s-center " style="background-color: rgb(2, 135, 148)" data-dot="<button role='button' class='owl-dot dot'><span class='title'>Bespoke Refrigerator</span><span class='progress'></span></button>" >
+										<img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-02-bg-mobile.jpg" class="ox-carousel__img hide-on-desktop hide-on-tablet" alt="" ><img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-02-bg.jpg" class="ox-carousel__img hide-on-mobile" alt="" >						            												<div class="ox-carousel__row">
+						<div class="ox-carousel__col">
+							<div class="ox-carousel__content"><div class="title-font"><div class="d-inline-block" style="background: rgb(47 215 178 / 20%);padding:6px 8px;"> 
+<div id="ox_countdown_25395d" class="a2-countdown " data-role="OXcountdown" data-mage-init='{"OXcountdown":{
+  "relative":"1", 
+  "endDate":"5", 
+  "endTime":"12", 
+  "timeZone":"0",
+  "timeZoneDiff":"true",
+        "save":"1",
+      "resetPeriod":"180",
+    "daysToHours":"",
+  "loop":"1"
+}}'>
+  	<div class="days">
+    <span class="num">--</span>
+    <span>days</span>  </div>
+  <span class="separator">:</span >  	<div class="hours">
+    <span class="num">--</span>
+    <span>hrs</span>    </div>
+    <span class="separator">:</span >	<div class="minutes">
+    <span class="num">--</span>
+    <span>min</span>  </div>
+  <span class="separator">:</span >	<div class="seconds">
+    <span class="num">--</span>
+    <span>sec</span>  </div>
+  </div>
+<style type="text/css">#ox_countdown_25395d.expired > div,#ox_countdown_25395d:not(.expired) .expired_text{display: none; }#ox_countdown_25395d.a2-countdown{font-size:12px;font-weight:500;color:white;}#ox_countdown_25395d.a2-countdown > div{padding:6px 8px;background-color:transparent;}#ox_countdown_25395d .num{font-size:22px;font-weight:600;}#ox_countdown_25395d .separator{font-size:22px;font-weight:600;margin-bottom:10px;}</style></div></div>
+<div class="spacer-xs">-</div>
+<h1 class="title">Get up to $1,200 off Select Refrigerators</h1>
+<p class="big-text" style="font-weight:500">Plus, get free installation and haul away with select purchase and 2 years of Super Care+ for $1 $169.99 *</p>
+<div class="spacer-xxs">-</div>
+<p><a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a></p>
+<div class="spacer-xxs">-</div>
+<p style="font-size:11px;opacity:0.7">* From 1/11/24 to 3/31/24. 18+ &amp; Continental US/DC only,<br> excluding Florida (PR/USVI not eligible).</p></div>						</div>
+						<div class="ox-carousel__col">
+														<div style="padding:15px;"><img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/fridge-slide-02.png" width="800" height="620" alt="fridges"  /></div>						</div>
+					</div>
+														<style type="text/css">#ox_islide_0116b8.a2-islide-wrap .a2-islide__item{ padding-right:35px;}#ox_islide_0116b8.a2-islide-wrap{ left:0;top:0; }</style>
+<div id="ox_islide_0116b8" class="a2-islide-wrap " style="position: absolute; z-index:2;">
+	<div class="a2-islide " style=" --a2-islide-time:2000ms; background-color:#4ae4bd; color:black; font-size:16px; font-weight:700;padding:4px;">
+	<div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div>	</div>
+</div>		</div>
+					<div id="ox-carousel-slide6-3" class="ox-slide-item -v-center slide-layout-no-container slide-content-2-col slide6 margins-normal align-s-center " style="" data-dot="<button role='button' class='owl-dot dot'><span class='title'>Discover OLED</span><span class='progress'></span></button>" >
+										<img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-03-bg-mobile.jpg" class="ox-carousel__img hide-on-desktop hide-on-tablet" alt="" ><img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-03-bg.jpg" class="ox-carousel__img hide-on-mobile" alt="" >						            												<div class="ox-carousel__row">
+						<div class="ox-carousel__col">
+							<div class="ox-carousel__content"><span class="subtitle at-highlight-2">Buster Deals</span>
+<div class="spacer-xxs">-</div>
+<h1 class="big no-margin" style="font-weight:bold">Discover<br>the best TV</h1>
+<div class="spacer-xs">-</div>
+<p class="big-text" style="font-weight:500">Get up to $1,900 off select OLED TVs and watch your favorite rivalry in dramatic detail.</p>
+<div class="spacer-xxs">-</div>
+<a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a></div>						</div>
+						<div class="ox-carousel__col">
+														<div class="shift-left-mobile" style=" margin-bottom:30px">
+<div style="box-shadow: 0 0 120px rgb(92 219 222 / 55%);">
+<img src="https://c.babyplaza.com.pe/media/athlete2/Demos/fi/slide-03-tv.jpg" alt="tv" width="726" height="418"  />
+</div>
+</div>						</div>
+					</div>
+														<style type="text/css">#ox_islide_1c3b17.a2-islide-wrap .a2-islide__item{ padding-right:35px;}#ox_islide_1c3b17.a2-islide-wrap{ left:43%;top:28%; }@media (max-width: 768px){ #ox_islide_1c3b17.a2-islide-wrap{ left:12%;top:0; }}</style>
+<div id="ox_islide_1c3b17" class="a2-islide-wrap " style=" transform: translateX(-25%) rotate(23deg);position: absolute; z-index:2;width: 200%;">
+	<div class="a2-islide " style=" --a2-islide-time:900ms; background-color:#211f20; color:white; font-size:16px; font-weight:700;padding:4px;">
+	<div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div>	</div>
+</div>
+	<style type="text/css">#ox_islide_28c807.a2-islide-wrap .a2-islide__item{ padding-right:35px;}#ox_islide_28c807.a2-islide-wrap{ left:43%;top:24%; }@media (max-width: 768px){ #ox_islide_28c807.a2-islide-wrap{ left:-5%;top:0; }}</style>
+<div id="ox_islide_28c807" class="a2-islide-wrap " style=" transform: translateX(-25%) rotate(15deg);position: absolute; z-index:2;width: 200%;">
+	<div class="a2-islide " style=" --a2-islide-time:1200ms; background-color:#4ae4bd; color:black; font-size:16px; font-weight:700;padding:4px;">
+	<div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div><div class="a2-islide__item">Flash Sale</div>	</div>
+</div>		</div>
+			
+		<style>#ox_carousel_8931b .slide4 .title{ color:rgb(255, 255, 255)} #ox_carousel_8931b .slide4 a.ox-slide__button{ color:rgb(0, 0, 0)} #ox_carousel_8931b .slide4 a.ox-slide__button:hover{ color:rgb(0, 0, 0)} #ox_carousel_8931b .slide4 a.ox-slide__button:after{ background-color:rgb(132, 246, 193)} #ox_carousel_8931b .slide4 a.ox-slide__button{ background-color:rgb(255, 255, 255)} #ox_carousel_8931b .slide4 .ox-carousel__content{ color:rgb(255, 255, 255)} #ox_carousel_8931b .slide4 .ox-carousel__col:first-child{
+                    margin: 0;
+                    padding: clamp(35px, 5%, 100px); background: rgb(38, 38, 38); } @media (min-width: 769px){#ox_carousel_8931b .slide4.slide-content-2-col .ox-carousel__col:first-child{max-width:760px;}#ox_carousel_8931b .slide4 .ox-carousel__inner{ max-width:760px }#ox_carousel_8931b .slide4 .ox-carousel__col:last-child{ margin: 0;flex: 1;max-width: 100%;}} #ox_carousel_8931b .slide5 .title{ color:rgb(255, 255, 255)} #ox_carousel_8931b .slide5 a.ox-slide__button{ color:rgb(255, 255, 255)} #ox_carousel_8931b .slide5 a.ox-slide__button:hover{ color:rgb(33, 31, 32)} #ox_carousel_8931b .slide5 a.ox-slide__button:after{ background-color:rgb(255, 255, 255)} #ox_carousel_8931b .slide5 a.ox-slide__button{ background-color:rgb(33, 31, 32)} #ox_carousel_8931b .slide5 .ox-carousel__content{ color:rgb(255, 255, 255)} @media (min-width: 769px){#ox_carousel_8931b .slide5.slide-content-2-col .ox-carousel__col:first-child{max-width:620px;}#ox_carousel_8931b .slide5 .ox-carousel__inner{ max-width:620px }} #ox_carousel_8931b .slide6 a.ox-slide__button{ color:rgb(255, 255, 255)} #ox_carousel_8931b .slide6 a.ox-slide__button:hover{ color:rgb(33, 31, 32)} #ox_carousel_8931b .slide6 a.ox-slide__button:after{ background-color:rgb(255, 255, 255)} #ox_carousel_8931b .slide6 a.ox-slide__button{ background-color:rgb(33, 31, 32)} #ox_carousel_8931b .slide6 .ox-carousel__content{ color:rgb(33, 31, 32)} #ox_carousel_8931b[slide="3"]:is(.ox-dots__s-lines_text_full,
+                .ox-dots__s-lines_text_big,
+                .ox-dots__s-lines_text) {
+                --a2-dot-color:rgb(33, 31, 32)} #ox_carousel_8931b[slide="3"]{
+                    --a2-progress-active:rgb(33, 31, 32)} #ox_carousel_8931b[slide="3"]{
+                    --a2-progress-bg:rgba(33, 31, 32, 0.4)} #ox_carousel_8931b[slide="3"]{
+                    --a2-progress-hover:rgb(33, 31, 32)} @media (min-width: 769px){#ox_carousel_8931b .slide6.slide-content-2-col .ox-carousel__col:first-child{max-width:620px;}#ox_carousel_8931b .slide6 .ox-carousel__inner{ max-width:620px }} @media (max-width: 768px){#ox_carousel_8931b .slide6.slide-content-2-col .ox-carousel__col:first-child{order:2}#ox_carousel_8931b .slide6.slide-content-2-col .ox-carousel__col:last-child{order:1}} #ox_carousel_8931b .owl-dot.active .progress:before{ animation: 3s linear 0s 1 normal forwards running progress-horizontal } #ox_carousel_8931b:hover .owl-dot.active .progress:before{ animation-play-state: paused; } #ox_carousel_8931b, #ox_carousel_8931b .ox-slide-item { height:670px} @media (max-width: 768px){#ox_carousel_8931b, #ox_carousel_8931b .ox-slide-item { height:1000px} }</style></div>

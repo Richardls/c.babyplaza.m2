@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/app/code/Olegnax/ProductSlider/view/frontend/web/js/product/owl-nav.js

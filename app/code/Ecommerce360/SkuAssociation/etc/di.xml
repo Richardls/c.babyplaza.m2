@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Framework:ObjectManager/etc/config.xsd">
+
+    <!-- Definición del FilterPool para Ecommerce360 SKU Association -->
+    <virtualType name="Ecommerce360SkuAssociationFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Definición del DataProvider para Ecommerce360 SKU Association -->
+    <virtualType name="Ecommerce360SkuAssociationFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Ecommerce360\SkuAssociation\Model\ResourceModel\SkuAssociation\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">Ecommerce360SkuAssociationFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Configuración de la colección de Grid para Ecommerce360 SKU Association -->
+    <type name="Ecommerce360\SkuAssociation\Model\ResourceModel\SkuAssociation\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ecommerce360_skuassociation</argument>
+            <argument name="eventPrefix" xsi:type="string">ecommerce360_skuassociation_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">skuassociation_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Ecommerce360\SkuAssociation\Model\ResourceModel\SkuAssociation</argument>
+        </arguments>
+    </type>
+
+    <!-- Configuración de CollectionFactory para el DataProvider -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ecommerce360_skuassociation_listing_data_source" xsi:type="string">Ecommerce360\SkuAssociation\Model\ResourceModel\SkuAssociation\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Opciones de MassAction -->
+    <type name="Ecommerce360\SkuAssociation\Ui\Component\MassAction\Status\Options">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">*/*/massStatus</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Change Status</item>
+                    <item name="message" xsi:type="string" translate="true">Are you sure you want to change the status of the selected records?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-page-builder/view/base/web/js/resource/jarallax/jarallax-video.js

@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-cookie/view/frontend/web/js/require-cookie.js

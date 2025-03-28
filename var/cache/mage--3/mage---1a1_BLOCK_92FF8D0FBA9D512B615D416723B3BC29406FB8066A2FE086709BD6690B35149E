@@ -1,0 +1,87 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1743135077;s:6:"expire";i:1743221477;s:4:"tags";s:45:"1a1_BLOCK_HTML,1a1_CAT_P_1,1a1_CAT_P,1a1_MAGE";}
+		<div id="ox_productsbycategory_0fad4b" class="block widget block-products-list grid product-border-disable&#x20;products-grid__layout-default&#x20;products-grid__style7&#x20;products-grid__details-bottom&#x20;products-grid__big-btns&#x20;secondary-top-right&#x20;product-columns-5&#x20;product-columns-l-4&#x20;product-columns-m-2&#x20;product-columns-s-1&#x20;title--align-&#x20;align-details-center&#x20;show-review-count&#x20;&#x20;owl-dots--align-&#x20;owl-nav--position-&#x20;title--align-&#x20;&#x20;&#x20;&#x20;thumb-slider-on">
+			 		<div class="block-content">
+			<div class="products-grid grid">
+				<div class="product-items owl-carousel widget-product-grid" data-role="product-owlCarousel" data-mage-init='{"OXowlCarousel":{"itemClass":"product-item","margin":0,"loop":false,"dots":false,"nav":false,"items":5,"autoplay":false,"autoplayTimeout":500,"autoplayHoverPause":false,"lazyLoad":true,"rewind":false,"responsive":{"0":{"items":1},"640":{"items":2},"1025":{"items":4},"1160":{"items":5}}}}'>
+																																									<div class="product-item-info ">
+							<div class="product-grid__image-wrapper">
+								<a href="https://c.babyplaza.com.pe/prueba-de-producto.html" class="product-item-photo">
+																		    <span class="product-image-container ox-product-thumb-image-container"
+          style="width:340px;">
+        <span class="product-image-wrapper"
+            style="padding-bottom: 100%;">
+                            <img class="product-image-photo product-thumb-image-photo lazy"                 src="https://c.babyplaza.com.pe/static/version1743124217/frontend/Olegnax/athlete2/en_US/Olegnax_Core/images/preloader-img.svg"
+                    data-original="https://c.babyplaza.com.pe/media/catalog/product/s/c/resized/scf332-01-extractor-electrico-3_3_340_340.jpg"
+                    width="340"
+                    height="340"
+                    alt="Prueba de Producto"/>
+                            <img class="product-image-photo product-thumb-image-photo lazy"                 src="https://c.babyplaza.com.pe/static/version1743124217/frontend/Olegnax/athlete2/en_US/Olegnax_Core/images/preloader-img.svg"
+                    data-original="https://c.babyplaza.com.pe/media/catalog/product/s/c/resized/scf332-01-extractor-electrico-2_3_340_340.jpg"
+                    width="340"
+                    height="340"
+                    alt="Prueba de Producto"/>
+                            <img class="product-image-photo product-thumb-image-photo lazy"                 src="https://c.babyplaza.com.pe/static/version1743124217/frontend/Olegnax/athlete2/en_US/Olegnax_Core/images/preloader-img.svg"
+                    data-original="https://c.babyplaza.com.pe/media/catalog/product/s/c/resized/scf332-01-extractor-electrico-1_3_340_340.jpg"
+                    width="340"
+                    height="340"
+                    alt="Prueba de Producto"/>
+                </span>
+    </span>
+	
+								</a>
+																	<div class="product-item-inner">
+										<a href="https://c.babyplaza.com.pe/prueba-de-producto.html" aria-label="View Product" class="overlay-link">Prueba de Producto</a>
+																					<div class="ox-dots" data-count="3" data-current="0"><span class="ox-dots__counter"><span class="ox-dots__current">1</span>3</span><span class="dot active">1</span><span class="dot ">2</span><span class="dot ">3</span></div>											<div class="ox-nav onhover">
+	<button role="presentation" class="js-thumb-nav prev"><span aria-label="Previous">‹</span></button>
+	<button role="presentation" class="js-thumb-nav next"><span aria-label="Next">›</span></button>
+</div>																															<div class="actions-secondary" data-role="add-to-links">
+																									<a href="#"
+													   data-post='{"action":"https:\/\/c.babyplaza.com.pe\/wishlist\/index\/add\/","data":{"product":1,"uenc":"aHR0cHM6Ly9jLmJhYnlwbGF6YS5jb20ucGUv"}}' class="action towishlist" data-action="add-to-wishlist" title="Wish&#x20;List">
+													   <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-wishlist"><use xlink:href="#a2-wishlist-icon"></use></svg><span>Wish List</span>
+													</a>
+																																			</div>
+																			</div>
+																							</div>
+							<div class="product-grid-overlay"></div>
+							<div class="product-item-details -top actions-stretch">
+																
+																
+																										
+
+																	<strong class="product-item-name">
+										<a title="Prueba de Producto"
+										href="https://c.babyplaza.com.pe/prueba-de-producto.html"
+										class="product-item-link">
+									Prueba de Producto										</a>
+									</strong>
+								
+																													
+											
+																	
+								                                                                    							</div>
+							<div class="product-item-details -footer actions-stretch">
+								<div class="price-box price-final_price" data-role="priceBox" data-product-id="1" data-price-box="product-id-1">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-1-"                data-price-amount="99"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">PEN 99.00</span></span>
+        </span>
+
+</div>							
+								
+																	<div class="product actions product-item-actions show-text">
+										<div class="actions-primary flex-column">	
+											<a class="button quick-view outline ox-quickview-button" data-quickview-url="https://c.babyplaza.com.pe/ox_quickview/catalog_product/view/id/1/" href="#"><span>Quickview</span></a>																					</div>
+									</div>
+								
+							</div>
+						</div>
+															</div>
+			</div>
+				</div>
+						<script type="text/x-magento-init">{"*":{"ox-thumb-carousel":{}}}</script> 
+			</div>

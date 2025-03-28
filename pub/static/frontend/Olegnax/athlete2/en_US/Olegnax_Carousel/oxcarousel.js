@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/app/code/Olegnax/Carousel/view/frontend/web/oxcarousel.js

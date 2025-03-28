@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/vendor/magento/module-page-builder/view/base/web/js/widget-initializer.js

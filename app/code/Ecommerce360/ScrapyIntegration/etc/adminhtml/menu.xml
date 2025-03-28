@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ecommerce360_ScrapyIntegration::manage_links"
+             title="Manage Scrapy Integration Links"
+             module="Ecommerce360_ScrapyIntegration"
+             sortOrder="20"
+             parent="Ecommerce360_Tiendas::main_menu"
+             action="scrapyintegration/index/index"
+             resource="Ecommerce360_ScrapyIntegration::manage_links"/>
+    </menu>
+</config>

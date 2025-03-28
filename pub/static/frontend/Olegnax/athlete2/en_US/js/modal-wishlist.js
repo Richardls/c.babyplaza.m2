@@ -1,0 +1,1 @@
+/var/www/c.babyplaza.com.pe/html/app/design/frontend/Olegnax/athlete2/web/js/modal-wishlist.js
