@@ -49,6 +49,7 @@ class PriceComparison extends Template
             ['tienda' => $this->resource->getTableName('ecommerce360_tiendas')],
             'main_table.store_domain = tienda.store_url',
             [
+                'store_id',
                 'store_name',
                 'store_url',
                 'store_logo',
