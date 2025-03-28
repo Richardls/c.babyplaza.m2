@@ -8,17 +8,15 @@ if (empty($comparisonData)) : ?>
     <?php return;
 endif;
 
-// Obtener la URL base de 'pub/media/'
-$mediaBaseUrl = $block->getStoreManager()
-    ->getStore()
-    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+// Obtener la URL base de 'pub/media/' usando el método del Block
+$mediaBaseUrl = $block->getMediaBaseUrl();
 ?>
 
 <div class="container my-4">
     <?php foreach ($comparisonData as $item): 
         $storeId           = $item['store_id'];
         $storeName         = $item['store_name'];
-        $storeLogo         = $item['store_logo']; // Ruta relativa, p. ej. 'store_logos/infanti-logo.png'
+        $storeLogo         = $item['store_logo']; // Ruta relativa, ej. 'store_logos/infanti-logo.png'
         $storeDescription  = $item['store_description'];
         $paymentMethods    = $item['payment_methods'];
         $deliveryOptions   = $item['delivery_options'];
@@ -29,8 +27,7 @@ $mediaBaseUrl = $block->getStoreManager()
         $productPrice      = $item['min_price'];      
         $productUrl        = $item['link_url'];
         
-        // Construimos la URL completa del logo
-        // Asegúrate de que $storeLogo no esté vacío o no contenga rutas erróneas
+        // Construir la URL completa del logo
         $storeLogoUrl = $mediaBaseUrl . $storeLogo;
         
         // Datos para el modal en JSON
