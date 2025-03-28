@@ -2,34 +2,26 @@
 /** @var $block \Ecommerce360\PriceComparison\Block\PriceComparison */
 $comparisonData = $block->getComparisonData();
 
-// Si no hay datos, mostramos un mensaje
 if (empty($comparisonData)) : ?>
     <p>No price comparison data available for this product.</p>
-    <?php
-    return;
-endif;
+    <?php return; endif;
 ?>
 
-<!-- CSS de Bootstrap 4 (si no está ya incluido en tu tema) -->
-
 <div class="container my-4">
-    <?php foreach ($comparisonData as $item):
-        // Preparar variables locales con la data
-        // Ajusta según los nombres reales de tus campos:
+    <?php foreach ($comparisonData as $item): 
         $storeId           = $item['store_id'];
         $storeName         = $item['store_name'];
         $storeLogo         = $item['store_logo'];
         $storeDescription  = $item['store_description'];
         $paymentMethods    = $item['payment_methods'];
         $deliveryOptions   = $item['delivery_options'];
-        $storeRating       = $item['rating'];   // Ej: 4.5
+        $storeRating       = $item['store_rating'];   // Ej: 4.5
         $ratingCount       = $item['rating_count'];   // Ej: 32
-        $shippingInfo      = $item['shipping_info'];  // Ej: "S/ 5.99 envío, 1-3 días"
+        $shippingInfo      = $item['shipping_info'];  
         $productName       = $item['store_productname'];
-        $productPrice      = $item['min_price'];      // Ej: 119.00
+        $productPrice      = $item['min_price'];      
         $productUrl        = $item['link_url'];
-
-        // Generar un array para pasarlo al modal via JSON
+        
         $storeData = [
             'store_id'         => $storeId,
             'name'             => $storeName,
@@ -44,139 +36,83 @@ endif;
             'product_price'    => 'S/ ' . number_format($productPrice, 2),
             'product_url'      => $productUrl
         ];
-
-        // Convertir a JSON para usar en el onclick
+        
         $storeDataJson = json_encode($storeData);
     ?>
-
-    <!-- Fila/Row para cada tienda -->
+    
+    <!-- Fila para cada tienda -->
     <div class="row align-items-center border rounded p-2 mb-3"
          style="cursor: pointer;"
          onclick="window.open('<?php echo $block->escapeUrl($productUrl); ?>', '_blank')">
 
-        <!-- Columna: Logo -->
+        <!-- Logo -->
         <div class="col-auto">
             <img src="<?php echo $block->escapeUrl($storeLogo); ?>"
                  alt="<?php echo $block->escapeHtml($storeName); ?> Logo"
-                 class="img-fluid rounded-circle"
-                 style="max-width: 40px;">
+                 style="max-width: 40px; border-radius: 50%;">
         </div>
 
-        <!-- Columna: Nombre de la tienda + flecha -->
+        <!-- Nombre de la tienda + flecha -->
         <div class="col">
-            <div class="d-flex align-items-center">
-                <strong class="mr-2"><?php echo $block->escapeHtml($storeName); ?></strong>
-
-                <!-- Botón flecha para abrir modal (evita la propagación del click) -->
+            <div style="display: flex; align-items: center;">
+                <strong style="margin-right: 10px;"><?php echo $block->escapeHtml($storeName); ?></strong>
                 <button type="button"
-                        class="btn btn-link p-0"
+                        style="background: none; border: none; cursor: pointer;"
                         onclick="event.stopPropagation(); openStoreModal(this);"
                         data-store='<?php echo htmlspecialchars($storeDataJson, ENT_QUOTES, 'UTF-8'); ?>'>
                     ▾
                 </button>
             </div>
-
             <!-- Nombre del producto (enlace) -->
             <a href="<?php echo $block->escapeUrl($productUrl); ?>"
                target="_blank"
-               class="text-decoration-none text-primary">
+               style="text-decoration: none; color: #007bff;">
                <?php echo $block->escapeHtml($productName); ?>
             </a>
         </div>
 
-        <!-- Columna: Envío y Precio -->
+        <!-- Envío y Precio -->
         <div class="col-auto text-right">
-            <div class="text-muted">
-                <?php echo $block->escapeHtml($shippingInfo); ?>
-            </div>
-            <div class="font-weight-bold">
-                S/ <?php echo number_format($productPrice, 2); ?>
-            </div>
+            <div style="color: #6c757d;"><?php echo $block->escapeHtml($shippingInfo); ?></div>
+            <div style="font-weight: bold;">S/ <?php echo number_format($productPrice, 2); ?></div>
         </div>
     </div>
     <?php endforeach; ?>
 </div>
 
-
-<!-- Modal (único) para mostrar información de la tienda -->
-<div class="modal fade" id="storeInfoModal" tabindex="-1" role="dialog" aria-labelledby="storeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-
-      <!-- HEADER DEL MODAL -->
-      <div class="modal-header">
-        <img src=""
-             alt="Logo de la Empresa"
-             id="modalStoreLogo"
-             class="img-fluid rounded-circle mr-3"
-             style="max-width: 40px;">
-        <h5 class="modal-title" id="storeModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <!-- CUERPO DEL MODAL -->
-      <div class="modal-body">
-        <p id="modalStoreDescription"></p>
-
-        <p><strong>Métodos de pago:</strong>
-          <span id="modalPaymentMethods"></span>
-        </p>
-
-        <p><strong>Opciones de entrega:</strong>
-          <span id="modalDeliveryOptions"></span>
-        </p>
-
-        <p><strong>Envío:</strong>
-          <span id="modalShippingInfo"></span>
-        </p>
-
-        <!-- Rating (opcional) -->
-        <div id="modalRatingSection" class="d-none">
-          <strong>Valoración:</strong>
-          <span id="modalRatingStars" class="text-warning"></span>
-          <span id="modalRatingVotes" class="ml-1"></span>
-        </div>
-
-        <hr>
-
-        <p>
-          <strong>Producto:</strong>
-          <span id="modalProductName"></span>
-        </p>
-        <p>
-          <strong>Precio:</strong>
-          <span id="modalProductPrice"></span>
-        </p>
-        <span id="modalProductStock" class="badge badge-success d-none">En stock</span>
-      </div>
-
-      <!-- FOOTER DEL MODAL -->
-      <div class="modal-footer">
-        <a href="#" id="modalStoreLink" target="_blank" class="btn btn-primary">
-          Comprar en <span id="modalStoreNameFooter"></span>
-        </a>
-      </div>
-
+<!-- Modal personalizado -->
+<div id="storeInfoModal" class="custom-modal" style="display:none; position: fixed; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+  <div class="custom-modal-content" style="background: #fff; margin: 10% auto; padding: 20px; width: 90%; max-width: 600px; border-radius: 5px; position: relative;">
+    <span class="custom-modal-close" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 24px;">&times;</span>
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <img src="" alt="Logo" id="modalStoreLogo" style="max-width: 40px; border-radius: 50%; margin-right: 15px;">
+      <h5 id="storeModalLabel" style="margin: 0;"></h5>
+    </div>
+    <p id="modalStoreDescription"></p>
+    <p><strong>Métodos de pago:</strong> <span id="modalPaymentMethods"></span></p>
+    <p><strong>Opciones de entrega:</strong> <span id="modalDeliveryOptions"></span></p>
+    <p><strong>Envío:</strong> <span id="modalShippingInfo"></span></p>
+    <div id="modalRatingSection" style="display: none;">
+      <strong>Valoración:</strong>
+      <span id="modalRatingStars" style="color: #ffc107;"></span>
+      <span id="modalRatingVotes" style="margin-left: 5px;"></span>
+    </div>
+    <hr>
+    <p><strong>Producto:</strong> <span id="modalProductName"></span></p>
+    <p><strong>Precio:</strong> <span id="modalProductPrice"></span></p>
+    <div style="text-align: right;">
+      <a href="#" id="modalStoreLink" target="_blank" style="background: #007bff; color: #fff; padding: 8px 12px; text-decoration: none; border-radius: 3px;">Comprar en <span id="modalStoreNameFooter"></span></a>
     </div>
   </div>
 </div>
 
-
 <script>
-/**
- * openStoreModal: Se llama al hacer clic en la flecha.
- * Carga los datos (ya están en el data-store del botón) y los muestra en el modal.
- */
+// Modal personalizado (sin dependencias de Bootstrap)
 function openStoreModal(btn) {
-  // Extraer datos en formato JSON del atributo data-store
   var storeData = btn.getAttribute('data-store');
   if (!storeData) return;
-
   var storeObj = JSON.parse(storeData);
 
-  // Asignar datos al modal
   document.getElementById('modalStoreLogo').src = storeObj.logo || '';
   document.getElementById('storeModalLabel').textContent = storeObj.name || '';
   document.getElementById('modalStoreDescription').textContent = storeObj.description || '';
@@ -184,60 +120,54 @@ function openStoreModal(btn) {
   document.getElementById('modalDeliveryOptions').textContent = storeObj.delivery_options || '';
   document.getElementById('modalShippingInfo').textContent = storeObj.shipping_info || '';
 
-  // Rating
   var ratingSection = document.getElementById('modalRatingSection');
   if (storeObj.rating && storeObj.rating_count) {
-    ratingSection.classList.remove('d-none');
+    ratingSection.style.display = 'block';
     document.getElementById('modalRatingStars').innerHTML = generateStars(storeObj.rating);
     document.getElementById('modalRatingVotes').textContent = '(' + storeObj.rating_count + ' votos)';
   } else {
-    ratingSection.classList.add('d-none');
+    ratingSection.style.display = 'none';
   }
 
-  // Producto
   document.getElementById('modalProductName').textContent = storeObj.product_name || '';
   document.getElementById('modalProductPrice').textContent = storeObj.product_price || '';
 
-  // Stock (si deseas manejarlo)
-  var stockBadge = document.getElementById('modalProductStock');
-  // Aquí podrías verificar si hay un campo storeObj.in_stock
-  // Ej: if (storeObj.in_stock) { ... } else { ... }
-  stockBadge.classList.add('d-none'); // Por defecto oculto o a tu lógica
-
-  // Enlace de compra
   var link = document.getElementById('modalStoreLink');
   link.href = storeObj.product_url || '#';
   document.getElementById('modalStoreNameFooter').textContent = storeObj.name || '';
 
   // Mostrar modal
-  $('#storeInfoModal').modal('show');
+  document.getElementById('storeInfoModal').style.display = 'block';
 }
 
-/**
- * generateStars: Genera un string HTML con estrellas llenas/vacías/medias.
- * rating: número de 0 a 5 (p.ej. 4.5)
- */
+// Cerrar el modal
+document.querySelector('.custom-modal-close').addEventListener('click', function() {
+  document.getElementById('storeInfoModal').style.display = 'none';
+});
+
+// Cerrar modal si se hace clic fuera del contenido
+window.addEventListener('click', function(event) {
+  var modal = document.getElementById('storeInfoModal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// Función para generar estrellas
 function generateStars(rating) {
   var starsHTML = '';
-  var fullStars = Math.floor(rating);  // Estrellas completas
-  var hasHalfStar = (rating % 1 !== 0); // Media estrella
-
-  // Estrellas llenas
+  var fullStars = Math.floor(rating);
+  var hasHalfStar = (rating % 1 !== 0);
   for (var i = 0; i < fullStars; i++) {
-    starsHTML += '&#9733;'; // ★
+    starsHTML += '&#9733;';
   }
-
-  // Media estrella
   if (hasHalfStar) {
-    starsHTML += '&#189;'; // ½
+    starsHTML += '&#189;';
   }
-
-  // Estrellas vacías
   var remaining = 5 - fullStars - (hasHalfStar ? 1 : 0);
   for (var j = 0; j < remaining; j++) {
-    starsHTML += '&#9734;'; // ☆
+    starsHTML += '&#9734;';
   }
-
   return starsHTML;
 }
 </script>
