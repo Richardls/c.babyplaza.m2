@@ -2,39 +2,40 @@
 /** @var $block \Ecommerce360\PriceComparison\Block\PriceComparison */
 $comparisonData = $block->getComparisonData();
 
-// Salimos si no hay datos
 if (empty($comparisonData)) : ?>
     <p>No price comparison data available for this product.</p>
     <?php return;
 endif;
 
-// Obtener la URL base de 'pub/media/' usando el método del Block
+// URL base de 'pub/media/'
 $mediaBaseUrl = $block->getMediaBaseUrl();
 ?>
 
+<!-- Contenedor general -->
 <div class="container my-4">
+
     <?php foreach ($comparisonData as $item): 
-        $storeId           = $item['store_id'];
-        $storeName         = $item['store_name'];
-        $storeLogo         = $item['store_logo']; // Ruta relativa, ej. 'store_logos/infanti-logo.png'
-        $storeDescription  = $item['store_description'];
-        $paymentMethods    = $item['payment_methods'];
-        $deliveryOptions   = $item['delivery_options'];
-        $storeRating       = $item['rating'];   // Ej: 4.5
-        $ratingCount       = $item['rating_count'];   // Ej: 32
-        $shippingInfo      = $item['shipping_info'];  
-        $productName       = $item['store_productname'];
-        $productPrice      = $item['min_price'];      
-        $productUrl        = $item['link_url'];
+        $storeId          = $item['store_id'];
+        $storeName        = $item['store_name'];
+        $storeLogo        = $item['store_logo']; 
+        $storeDescription = $item['store_description'];
+        $paymentMethods   = $item['payment_methods'];
+        $deliveryOptions  = $item['delivery_options'];
+        $storeRating      = $item['rating'];   // Ej: 4.5
+        $ratingCount      = $item['rating_count'];   // Ej: 32
+        $shippingInfo     = $item['shipping_info'];  
+        $productName      = $item['store_productname'];
+        $productPrice     = $item['min_price'];      
+        $productUrl       = $item['link_url'];
         
-        // Construir la URL completa del logo
+        // Ruta completa del logo
         $storeLogoUrl = $mediaBaseUrl . $storeLogo;
         
-        // Datos para el modal en JSON
+        // Datos para el modal (JSON)
         $storeData = [
             'store_id'         => $storeId,
             'name'             => $storeName,
-            'logo'             => $storeLogoUrl,  // Usamos la URL completa
+            'logo'             => $storeLogoUrl,
             'description'      => $storeDescription,
             'payment_methods'  => $paymentMethods,
             'delivery_options' => $deliveryOptions,
@@ -45,59 +46,150 @@ $mediaBaseUrl = $block->getMediaBaseUrl();
             'product_price'    => 'S/ ' . number_format($productPrice, 2),
             'product_url'      => $productUrl
         ];
-        
         $storeDataJson = json_encode($storeData);
+
+        // Etiquetas ARIA
+        $ariaLabelMain = sprintf(
+            '%s, %s',
+            $block->escapeHtml($storeName),
+            $block->escapeHtml($productName)
+        );
     ?>
-    
-    <!-- Fila para cada tienda -->
-    <div class="row align-items-center border rounded p-2 mb-3"
-         style="cursor: pointer;"
-         onclick="window.open('<?php echo $block->escapeUrl($productUrl); ?>', '_blank')">
 
-        <!-- Logo -->
-        <div class="col-auto">
-            <img src="<?php echo $block->escapeUrl($storeLogoUrl); ?>"
-                 alt="<?php echo $block->escapeHtml($storeName); ?> Logo"
-                 style="max-width: 40px; border-radius: 50%;">
-        </div>
+    <!-- 
+      Estructura que imita al snippet de ejemplo:
+      - Div principal con clase "pr-1u8qly9"
+      - Div con clase "pr-1713fyg-Card-root"
+      - Primer bloque (botón info + logo/tienda)
+      - Segundo bloque (enlace con nombre del producto, shipping, precio, etc.)
+    -->
+    <div aria-label="<?php echo $ariaLabelMain; ?>" 
+         class="pr-1u8qly9" 
+         style="-webkit-tap-highlight-color: transparent; margin-bottom: 1rem;">
 
-        <!-- Nombre de la tienda + flecha -->
-        <div class="col">
-            <div style="display: flex; align-items: center;">
-                <strong style="margin-right: 10px;"><?php echo $block->escapeHtml($storeName); ?></strong>
-                
-                <button type="button"
-                        style="background: none; border: none; cursor: pointer;"
-                        onclick="event.stopPropagation(); openStoreModal(this);"
-                        data-store='<?php echo htmlspecialchars($storeDataJson, ENT_QUOTES, 'UTF-8'); ?>'>
-                    <svg aria-hidden="true"
-                        fill="currentColor"
-                        preserveAspectRatio="none"
-                        viewBox="0 0 24 24"
-                        style="width: 20px; height: 20px;">
-                    <path d="M12.0043 17.3797C11.6976 17.3797 11.4062 17.2458 11.2063 17.0129C11.1719 16.9719 7.65968 12.8857 3.48999 9.66347L4.77421 8.00292C7.95401 10.4601 10.6989 13.3221 12.0014 14.7484C13.2973 13.3199 16.0327 10.4571 19.2381 8L20.515 9.66641C16.316 12.885 12.8397 16.9683 12.8053 17.0093C12.6062 17.2436 12.3148 17.379 12.0065 17.3797H12.0043Z"/>
-                    </svg>
-                </button>
+        <!-- Contenedor principal de la "Card" -->
+        <div class="pr-1713fyg-Card-root">
 
+            <!-- PRIMER BLOQUE: Botón info + Logo + Nombre de tienda -->
+            <div class="pr-8knxk1">
+                <div class="pr-16wvs9j">
+                    <!-- Botón que abre modal (info de la tienda) -->
+                    <button type="button"
+                            aria-label="More information about <?php echo $block->escapeHtml($storeName); ?>"
+                            class="pr-139ibvo"
+                            onclick="event.stopPropagation(); openStoreModal(this);"
+                            data-store='<?php echo htmlspecialchars($storeDataJson, ENT_QUOTES, 'UTF-8'); ?>'>
+                        <!-- Icono flecha (SVG) -->
+                        <span style="display: contents;">
+                            <span data-testid="icon-button-icon" class="pr-126k5sh-Icon-root">
+                                <svg aria-hidden="true"
+                                     fill="currentColor"
+                                     preserveAspectRatio="none"
+                                     viewBox="0 0 24 24"
+                                     class="pr-jhqgwl-Icon-svg"
+                                     style="width: 20px; height: 20px;">
+                                    <path d="M12.0043 17.3797C11.6976 17.3797 11.4062 17.2458 11.2063 17.0129C11.1719 16.9719 7.65968 12.8857 3.48999 9.66347L4.77421 8.00292C7.95401 10.4601 10.6989 13.3221 12.0014 14.7484C13.2973 13.3199 16.0327 10.4571 19.2381 8L20.515 9.66641C16.316 12.885 12.8397 16.9683 12.8053 17.0093C12.6062 17.2436 12.3148 17.379 12.0065 17.3797H12.0043Z"></path>
+                                </svg>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Enlace al producto + Logo y Nombre de la tienda -->
+                <a href="<?php echo $block->escapeUrl($productUrl); ?>"
+                   rel="nofollow noopener"
+                   target="_blank"
+                   aria-label="<?php echo $block->escapeHtml($productName); ?>"
+                   style="flex: 1 1 0%; min-width: 0; text-decoration: none; color: inherit;">
+                   
+                    <div class="pr-13jjtje">
+                        <div class="pr-cnnmk8">
+                            <div class="pr-1u4pmau">
+                                <div class="pr-1d0v52l">
+                                    <!-- Logo contenedor -->
+                                    <div class="pr-7y7txl-ExternalLogo">
+                                        <div class="pr-ja33la">
+                                            <!-- Podrías usar <picture> si deseas, 
+                                                 aquí simplificamos a <img> -->
+                                            <img src="<?php echo $block->escapeUrl($storeLogoUrl); ?>"
+                                                 alt="<?php echo $block->escapeHtml($storeName); ?> Logo"
+                                                 width="38"
+                                                 height="38"
+                                                 style="border-radius: 50%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pr-27qsoo">
+                                    <div class="pr-1fil42c">
+                                        <p class="pr-115zphf" style="margin:0;">
+                                            <?php echo $block->escapeHtml($storeName); ?>
+                                        </p>
+                                    </div>
+                                    <div class="pr-l4yabf"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pr-wbmnko"></div>
+                    </div>
+                </a>
             </div>
-            <!-- Nombre del producto (enlace) -->
+
+            <!-- SEGUNDO BLOQUE: Nombre del producto, shipping, precio, icono flecha a la derecha -->
             <a href="<?php echo $block->escapeUrl($productUrl); ?>"
+               rel="nofollow noopener"
                target="_blank"
-               style="text-decoration: none; color: #007bff;">
-               <?php echo $block->escapeHtml($productName); ?>
+               aria-label="<?php echo $block->escapeHtml($productName); ?>"
+               title="<?php echo $block->escapeHtml($productName); ?>">
+
+                <div class="pr-dekdeg">
+                    <div class="pr-q9guwh">
+                        <span class="pr-s69dr9">
+                            <?php echo $block->escapeHtml($productName); ?>
+                        </span>
+                    </div>
+                    <div class="pr-c256w6">
+                        <div class="pr-18gjabf">
+                            <!-- shipping info -->
+                            <span class="pr-zms104">
+                                <?php echo $block->escapeHtml($shippingInfo); ?>
+                            </span>
+                        </div>
+                        <div class="pr-133240k">
+                            <div class="pr-sr8zww">
+                                <div class="pr-1fxih16">
+                                    <span class="pr-13k1u52">
+                                        <span style="display: contents;">
+                                            <span class="pr-134edi3" data-testid="priceComponent">
+                                                S/ <?php echo number_format($productPrice, 2); ?>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Icono flecha de la derecha (opcional) -->
+                        <div class="pr-i1fmmj-Icon-root">
+                            <svg aria-hidden="true"
+                                 fill="currentColor"
+                                 preserveAspectRatio="none"
+                                 viewBox="0 0 24 24"
+                                 class="pr-jhqgwl-Icon-svg"
+                                 style="width: 20px; height: 20px;">
+                                <path d="M9.66529 20.5336L8.00293 19.248C10.4628 16.0647 13.3279 13.3168 14.7557 12.0129C13.3257 10.7155 10.4598 7.97718 8 4.76828L9.66823 3.48999C12.8903 7.69353 16.9781 11.1736 17.0191 11.2081C17.2537 11.4075 17.3893 11.6992 17.39 12.0078C17.3907 12.3156 17.2566 12.608 17.0228 12.8089C16.9817 12.8433 12.8911 16.3593 9.66529 20.5336Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </a>
-        </div>
 
-        <!-- Envío y Precio -->
-        <div class="col-auto text-right">
-            <div style="color: #6c757d;"><?php echo $block->escapeHtml($shippingInfo); ?></div>
-            <div style="font-weight: bold;">S/ <?php echo number_format($productPrice, 2); ?></div>
-        </div>
-    </div>
+        </div> <!-- fin pr-1713fyg-Card-root -->
+    </div> <!-- fin pr-1u8qly9 -->
+
     <?php endforeach; ?>
-</div>
 
-<!-- Modal personalizado -->
+</div> <!-- fin .container -->
+
+<!-- A continuación, tu modal personalizado (igual que antes) -->
 <div id="storeInfoModal" class="custom-modal" style="display:none; position: fixed; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
   <div class="custom-modal-content" style="background: #fff; margin: 10% auto; padding: 20px; width: 90%; max-width: 600px; border-radius: 5px; position: relative;">
     <span class="custom-modal-close" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 24px;">&times;</span>
@@ -126,7 +218,7 @@ $mediaBaseUrl = $block->getMediaBaseUrl();
 </div>
 
 <script>
-// Modal personalizado (sin dependencias de Bootstrap)
+// Igual que antes: tu lógica para abrir/cerrar el modal y generar estrellas
 function openStoreModal(btn) {
   var storeData = btn.getAttribute('data-store');
   if (!storeData) return;
@@ -155,16 +247,13 @@ function openStoreModal(btn) {
   link.href = storeObj.product_url || '#';
   document.getElementById('modalStoreNameFooter').textContent = storeObj.name || '';
 
-  // Mostrar modal
   document.getElementById('storeInfoModal').style.display = 'block';
 }
 
-// Cerrar el modal
 document.querySelector('.custom-modal-close').addEventListener('click', function() {
   document.getElementById('storeInfoModal').style.display = 'none';
 });
 
-// Cerrar modal si se hace clic fuera del contenido
 window.addEventListener('click', function(event) {
   var modal = document.getElementById('storeInfoModal');
   if (event.target === modal) {
@@ -172,7 +261,6 @@ window.addEventListener('click', function(event) {
   }
 });
 
-// Función para generar estrellas
 function generateStars(rating) {
   var starsHTML = '';
   var fullStars = Math.floor(rating);
