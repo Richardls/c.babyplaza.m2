@@ -2,12 +2,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-<referenceBlock name="content">
+<referenceBlock name="before.body.end">
     <block class="Ecommerce360\PriceComparison\Block\PriceComparison"
            name="price.comparison"
            template="Ecommerce360_PriceComparison::price_comparison.phtml"
            group="detailed_info"
-           before="reviews.tab"/>
+           before="ox_product_bar.info.review"/>
 </referenceBlock>
 
 
