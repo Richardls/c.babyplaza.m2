@@ -7,7 +7,7 @@
            name="price.comparison"
            template="Ecommerce360_PriceComparison::price_comparison.phtml"
            group="detailed_info"
-           before="ox_product_bar.info.review"/>
+           before="product.info.main"/>
 </referenceBlock>
 
 
