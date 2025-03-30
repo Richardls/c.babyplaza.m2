@@ -9,7 +9,7 @@
  * @license     https://www.olegnax.com/license
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.additional">
             <block ifconfig="athlete2_settings/product/gallery_preload" class="Magento\Catalog\Block\Product\View\Gallery" name="ox_preload_image" template="Magento_Catalog::product/view/preload.phtml">
