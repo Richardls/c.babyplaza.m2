@@ -111,6 +111,15 @@
                 </arguments>
             </block>
         </referenceContainer>
+        <!-- INICIO RL -->
+        <referenceContainer name="athlete2_product_info_wrapper">
+            <block class="Ecommerce360\PriceComparison\Block\PriceComparison"
+                name="price_comparison_block"
+                template="Ecommerce360_PriceComparison::price_comparison.phtml"
+                before="-" />
+        </referenceContainer>
+        <!-- FIN RL -->
+
         <move element="product.info.addto2" destination="product.info.form.content" after="-"/>
         <move element="product_view_ox_social2" destination="product.info.form.content" after="-"/>
         <move element="product.info.addto2.additional" destination="product.info.options.wrapper.bottom" after="product.info.addtocart.additional"/>
