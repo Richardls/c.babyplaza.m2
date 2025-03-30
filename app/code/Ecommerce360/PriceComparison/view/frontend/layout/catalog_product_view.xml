@@ -6,7 +6,7 @@
     <block class="Ecommerce360\PriceComparison\Block\PriceComparison"
            name="price.comparison"
            template="Ecommerce360_PriceComparison::price_comparison.phtml"
-           before="product.info.overview"/>
+           after="product.info.overview"/>
 </referenceBlock>
 
 
