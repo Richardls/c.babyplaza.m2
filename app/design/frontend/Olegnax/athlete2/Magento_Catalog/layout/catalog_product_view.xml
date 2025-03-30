@@ -136,11 +136,11 @@
                 </arguments>
             </block> -->
         </referenceContainer>
-                <referenceContainer name="main.content">
+                <referenceContainer name="main">
             <block class="Ecommerce360\PriceComparison\Block\PriceComparison"
                 name="price_comparison_block"
                 template="Ecommerce360_PriceComparison::price_comparison.phtml"
-                before="ox_quick_nav" />
+                before="athlete-reviews-wrapper" />
         </referenceContainer>
         <!-- FIN RL -->
         <referenceBlock name="catalog.product.related">
