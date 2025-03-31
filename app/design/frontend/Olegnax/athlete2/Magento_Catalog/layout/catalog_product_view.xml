@@ -68,7 +68,7 @@
         <referenceBlock name="product.info.blog.relatedposts" remove="true"/>
         <block class="Magento\Catalog\Block\Product\View" name="product.energy_rating" template="product/view/energy_rating.phtml" before="product.info.overview"/>
         <move element="page.main.title" destination="product.info.main" before="-"/>        
-        <!-- <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/> -->
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
         <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
         <move element="product.energy_rating" destination="product.info.main" before="product.info.overview"/>
@@ -78,7 +78,7 @@
         <move element="product_view_brand" destination="product.info.main" before="page.main.title"/>
         
         <referenceBlock name="product.info.main">
-             <!-- <block class="Olegnax\Athlete2\Block\Product\SalePriceDifference" name="ox_product.price_difference" template="Magento_Catalog::product/view/price_difference.phtml" /> -->
+            <block class="Olegnax\Athlete2\Block\Product\SalePriceDifference" name="ox_product.price_difference" template="Magento_Catalog::product/view/price_difference.phtml" />
             <block class="Olegnax\Athlete2\Block\Template" name="product_view_ox_block" template="Magento_Catalog::product/view/ox_block.phtml" after="-"/>
             <!-- Bloque de botón principal -->
             <!--
@@ -87,10 +87,7 @@
             <block  class="Olegnax\Athlete2\Block\Template" name="product_view_ox_social2" after="-" template="Magento_Catalog::product/view/ox_social2.phtml">
                 <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_social2.content" after="-" template="Magento_Catalog::product/view/ox_social_content.phtml"/>
             </block>
-            <!-- Bloque de botón adicional -->
-            <!--
             <block class="Magento\Catalog\Block\Product\View" name="product.info.addto2.additional" as="addto2-additional" template="Magento_Catalog::product/view/addto2.phtml"/>
-            -->
             <block class="Olegnax\Athlete2\Block\Template" name="product_view_ox_social2.additional" as="ox_social2-additional" after="-" template="Magento_Catalog::product/view/ox_social2.phtml">
                 <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_social2.additional.content" after="-" template="Magento_Catalog::product/view/ox_social_content.phtml"/>
             </block>
@@ -111,8 +108,6 @@
 				</arguments>
 			</block>
         </referenceBlock>
-        <!-- Bloque de botón adicional -->
-        <!--
         <referenceContainer name="product.info.form.content">
             <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_stock" template="Magento_Catalog::product/view/stock.phtml" before="product.info.addtocart">
                 <arguments>
@@ -120,13 +115,9 @@
                 </arguments>
             </block>
         </referenceContainer>
-        -->
-         <!-- <move element="product.info.addto2" destination="product.info.form.content" after="-"/> -->
+        <move element="product.info.addto2" destination="product.info.form.content" after="-"/>
         <move element="product_view_ox_social2" destination="product.info.form.content" after="-"/>
-        <!-- Bloque de botón adicional -->
-        <!--
         <move element="product.info.addto2.additional" destination="product.info.options.wrapper.bottom" after="product.info.addtocart.additional"/>
-        -->
         <move element="product_view_ox_social2.additional" destination="product.info.options.wrapper.bottom" after="product.info.addto2.additional"/>
         <referenceContainer name="product.info.social">
             <block  class="Olegnax\Athlete2\Block\Template" name="product_view_ox_social" before="product.info.mailto" template="Magento_Catalog::product/view/ox_social.phtml">
