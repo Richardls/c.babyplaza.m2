@@ -79,11 +79,17 @@
         <referenceBlock name="product.info.main">
             <block class="Olegnax\Athlete2\Block\Product\SalePriceDifference" name="ox_product.price_difference" template="Magento_Catalog::product/view/price_difference.phtml" />
             <block class="Olegnax\Athlete2\Block\Template" name="product_view_ox_block" template="Magento_Catalog::product/view/ox_block.phtml" after="-"/>
+            <!-- Bloque de botón principal -->
+            <!--
             <block class="Magento\Catalog\Block\Product\View" name="product.info.addto2" as="addto2" template="Magento_Catalog::product/view/addto2.phtml"/>
+            -->
             <block  class="Olegnax\Athlete2\Block\Template" name="product_view_ox_social2" after="-" template="Magento_Catalog::product/view/ox_social2.phtml">
                 <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_social2.content" after="-" template="Magento_Catalog::product/view/ox_social_content.phtml"/>
             </block>
+            <!-- Bloque de botón adicional -->
+            <!--
             <block class="Magento\Catalog\Block\Product\View" name="product.info.addto2.additional" as="addto2-additional" template="Magento_Catalog::product/view/addto2.phtml"/>
+            -->
             <block class="Olegnax\Athlete2\Block\Template" name="product_view_ox_social2.additional" as="ox_social2-additional" after="-" template="Magento_Catalog::product/view/ox_social2.phtml">
                 <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_social2.additional.content" after="-" template="Magento_Catalog::product/view/ox_social_content.phtml"/>
             </block>
