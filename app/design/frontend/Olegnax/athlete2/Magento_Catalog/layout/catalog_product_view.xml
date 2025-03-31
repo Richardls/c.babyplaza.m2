@@ -108,6 +108,7 @@
 				</arguments>
 			</block>
         </referenceBlock>
+        <!--
         <referenceContainer name="product.info.form.content">
             <block class="Magento\Catalog\Block\Product\View" name="product_view_ox_stock" template="Magento_Catalog::product/view/stock.phtml" before="product.info.addtocart">
                 <arguments>
@@ -115,6 +116,7 @@
                 </arguments>
             </block>
         </referenceContainer>
+        -->
         <move element="product.info.addto2" destination="product.info.form.content" after="-"/>
         <move element="product_view_ox_social2" destination="product.info.form.content" after="-"/>
         <move element="product.info.addto2.additional" destination="product.info.options.wrapper.bottom" after="product.info.addtocart.additional"/>
