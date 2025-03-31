@@ -67,7 +67,7 @@
         <referenceBlock name="product.info.blog.relatedposts" remove="true"/>
         <block class="Magento\Catalog\Block\Product\View" name="product.energy_rating" template="product/view/energy_rating.phtml" before="product.info.overview"/>
         <move element="page.main.title" destination="product.info.main" before="-"/>        
-        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <!-- <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/> -->
         <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
         <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
         <move element="product.energy_rating" destination="product.info.main" before="product.info.overview"/>
@@ -77,7 +77,7 @@
         <move element="product_view_brand" destination="product.info.main" before="page.main.title"/>
         
         <referenceBlock name="product.info.main">
-            <block class="Olegnax\Athlete2\Block\Product\SalePriceDifference" name="ox_product.price_difference" template="Magento_Catalog::product/view/price_difference.phtml" />
+             <!-- <block class="Olegnax\Athlete2\Block\Product\SalePriceDifference" name="ox_product.price_difference" template="Magento_Catalog::product/view/price_difference.phtml" /> -->
             <block class="Olegnax\Athlete2\Block\Template" name="product_view_ox_block" template="Magento_Catalog::product/view/ox_block.phtml" after="-"/>
             <!-- Bloque de botón principal -->
             <!--
@@ -120,7 +120,7 @@
             </block>
         </referenceContainer>
         -->
-        <move element="product.info.addto2" destination="product.info.form.content" after="-"/>
+         <!-- <move element="product.info.addto2" destination="product.info.form.content" after="-"/> -->
         <move element="product_view_ox_social2" destination="product.info.form.content" after="-"/>
         <!-- Bloque de botón adicional -->
         <!--
