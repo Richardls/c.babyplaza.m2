@@ -1,5 +1,17 @@
 <?php
-/** @var $_product \Magento\Catalog\Model\Product */
+// Intentamos obtener el producto desde el bloque
+$product = $block->getProduct();
+
+// Si no está definido, lo obtenemos del registro
+if (!$product) {
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+}
+
+if (!$product) {
+    echo __('Producto no disponible');
+    return;
+}
 ?>
 <div class="price-history-container">
     <canvas id="priceHistoryChart"></canvas>
@@ -15,7 +27,7 @@
 
 <!-- Inyectar la variable SKU del producto -->
 <script>
-    window.productSku = '<?php echo $_product->getSku(); ?>';
+    window.productSku = '<?php echo $product->getSku(); ?>';
 </script>
 
 <script>
