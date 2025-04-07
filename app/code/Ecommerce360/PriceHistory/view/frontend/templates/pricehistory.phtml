@@ -1,0 +1,25 @@
+<?php
+/** @var $_product \Magento\Catalog\Model\Product */
+?>
+<div class="price-history-container">
+    <canvas id="priceHistoryChart"></canvas>
+    <div class="price-history-filters">
+        <button data-range="3">Últimos 3 meses</button>
+        <button data-range="6">Últimos 6 meses</button>
+        <button data-range="12">Últimos 12 meses</button>
+    </div>
+</div>
+
+<!-- Incluir Chart.js desde CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Inyectar la variable SKU del producto -->
+<script>
+    window.productSku = '<?php echo $_product->getSku(); ?>';
+</script>
+
+<script>
+    require(['jquery', 'Ecommerce360_PriceHistory/js/pricehistory'], function($, priceHistory){
+        priceHistory.init();
+    });
+</script>

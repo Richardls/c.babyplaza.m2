@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ecommerce360_pricehistory" resource="default" engine="innodb" comment="Ecommerce360 Price History Table">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="64" comment="Product SKU"/>
+        <column xsi:type="date" name="history_date" nullable="false" comment="Fecha del Historial"/>
+        <column xsi:type="varchar" name="store_id" nullable="false" length="64" comment="Identificador de la Tienda"/>
+        <column xsi:type="varchar" name="store_name" nullable="false" length="255" comment="Nombre de la Tienda"/>
+        <column xsi:type="decimal" name="price" nullable="false" scale="2" precision="12" comment="Precio"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Fecha de Creación"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNQ_SKU_HISTORY_DATE_STORE">
+            <column name="sku"/>
+            <column name="history_date"/>
+            <column name="store_id"/>
+        </constraint>
+    </table>
+</schema>
