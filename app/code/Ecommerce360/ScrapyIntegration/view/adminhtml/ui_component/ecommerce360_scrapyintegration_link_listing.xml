@@ -212,6 +212,16 @@
             </argument>
         </column>
 
+        <column name="magento_sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">SKU Magento</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
+
         <column name="store_productname">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
