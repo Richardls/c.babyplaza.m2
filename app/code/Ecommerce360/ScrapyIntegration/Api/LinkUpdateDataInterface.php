@@ -25,6 +25,17 @@ interface LinkUpdateDataInterface
      */
     public function setSkuStore($skuStore);
 
+        /**
+     * @return string|null
+     */
+    public function getMagentoSku();
+
+    /**
+     * @param string $magentoSku
+     * @return $this
+     */
+    public function setMagentoSku($magentoSku);
+
     /**
      * @return string|null
      */

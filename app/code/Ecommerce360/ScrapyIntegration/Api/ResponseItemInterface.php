@@ -6,6 +6,7 @@ interface ResponseItemInterface
     const DATA_LINK_ID = 'link_id';
     const DATA_STORE_DOMAIN = 'store_domain';
     const DATA_SKU_STORE = 'sku_store';
+    const DATA_MAGENTO_SKU = 'magento_sku';
     const DATA_STORE_PRODUCT_NAME = 'store_productname';
     const DATA_STORE_BRAND = 'store_brand';
     const DATA_LINK_URL = 'link_url';
@@ -30,6 +31,17 @@ interface ResponseItemInterface
      * @return string
      */
     public function getSkuStore();
+
+     /**
+     * @return string|null
+     */
+    public function getMagentoSku();
+
+    /**
+     * @param string $magentoSku
+     * @return $this
+     */
+    public function setMagentoSku(string $magentoSku);
 
     /**
      * @return string

@@ -21,6 +21,11 @@ class ResponseItem extends DataObject implements ResponseItemInterface
         return $this->_getData(self::DATA_SKU_STORE);
     }
 
+    public function getMagentoSku(): ?string
+    {
+        return $this->_getData(self::DATA_MAGENTO_SKU);
+    }
+    
     public function getStoreProductname(): string
     {
         return $this->_getData(self::DATA_STORE_PRODUCT_NAME);
@@ -79,6 +84,11 @@ class ResponseItem extends DataObject implements ResponseItemInterface
     public function setSkuStore(string $sku): self
     {
         return $this->setData(self::DATA_SKU_STORE, $sku);
+    }
+
+    public function setMagentoSku(string $magentoSku): self
+    {
+        return $this->setData(self::DATA_MAGENTO_SKU, $magentoSku);
     }
 
     public function setStoreProductname(string $name): self

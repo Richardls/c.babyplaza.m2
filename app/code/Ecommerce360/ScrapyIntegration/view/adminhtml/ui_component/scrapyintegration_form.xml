@@ -89,6 +89,18 @@
             </argument>
         </field>
 
+        <field name="magento_sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="label" xsi:type="string" translate="true">Magento SKU</item>
+                    <item name="dataScope" xsi:type="string">magento_sku</item>
+                </item>
+            </argument>
+        </field>
+
+
         <field name="store_productname">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
