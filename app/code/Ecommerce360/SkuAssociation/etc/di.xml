@@ -52,4 +52,7 @@
         </arguments>
     </type>
 
+    <!-- Preferencia para AssociationService -->
+    <preference for="Ecommerce360\SkuAssociation\Model\AssociationService" type="Ecommerce360\SkuAssociation\Model\AssociationService" />
+
 </config>

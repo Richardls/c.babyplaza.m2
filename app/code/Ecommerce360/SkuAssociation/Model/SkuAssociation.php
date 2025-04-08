@@ -10,5 +10,25 @@ class SkuAssociation extends AbstractModel
     {
         $this->_init(SkuAssociationResourceModel::class);
     }
+        /**
+     * Retrieve the Magento SKU associated.
+     *
+     * @return string|null
+     */
+    public function getSkuMagento()
+    {
+        return $this->getData('sku_magento');
+    }
+
+    /**
+     * Set the Magento SKU associated.
+     *
+     * @param string $skuMagento
+     * @return $this
+     */
+    public function setSkuMagento($skuMagento)
+    {
+        return $this->setData('sku_magento', $skuMagento);
+    }
 
 }
