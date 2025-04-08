@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <!-- CRON para consolidar el histórico de precios (si ya lo tienes) -->
+        <!-- ... -->
+
+        <!-- Nuevo CRON para actualizar automaticamente el Magento SKU en ScrapyIntegration -->
+        <job name="ecommerce360_update_magento_sku" instance="Ecommerce360\ScrapyIntegration\Cron\UpdateMagentoSku" method="execute">
+            <schedule>*/5 * * * *</schedule> <!-- Cada 10 minutos, ajustar según sea necesario -->
+        </job>
+    </group>
+</config>
