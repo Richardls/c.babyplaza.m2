@@ -27,6 +27,17 @@
         </arguments>
     </virtualType>
 
+    <!-- Configuración de la colección de Grid para Ecommerce360 MasterLinks -->
+<type name="Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink\Grid\Collection">
+    <arguments>
+        <argument name="mainTable" xsi:type="string">ecommerce360_masterlinks</argument>
+        <argument name="eventPrefix" xsi:type="string">ecommerce360_masterlinks_grid_collection</argument>
+        <argument name="eventObject" xsi:type="string">masterlinks_grid_collection</argument>
+        <argument name="resourceModel" xsi:type="string">Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink</argument>
+    </arguments>
+</type>
+
+
     <!-- Configuración de CollectionFactory para el DataProvider -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
