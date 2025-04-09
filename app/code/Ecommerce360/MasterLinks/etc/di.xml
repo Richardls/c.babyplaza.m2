@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <!-- Inyección para el controlador Adminhtml Index: se inyecta el PageFactory -->
+    <!-- Inyectar el PageFactory en el controlador para evitar "Too few arguments" -->
     <type name="Ecommerce360\MasterLinks\Controller\Adminhtml\Index\Index">
         <arguments>
             <argument name="resultPageFactory" xsi:type="object">Magento\Framework\View\Result\PageFactory</argument>
@@ -27,35 +27,11 @@
         </arguments>
     </virtualType>
 
-    <!-- Configuración de la colección de Grid para MasterLinks -->
-    <type name="Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink\Grid\Collection">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">ecommerce360_masterlinks</argument>
-            <argument name="eventPrefix" xsi:type="string">ecommerce360_masterlinks_grid_collection</argument>
-            <argument name="eventObject" xsi:type="string">masterlinks_grid_collection</argument>
-            <argument name="resourceModel" xsi:type="string">Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink</argument>
-        </arguments>
-    </type>
-
     <!-- Configuración del CollectionFactory para el DataProvider -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="ecommerce360_masterlinks_listing_data_source" xsi:type="string">Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink\Grid\Collection</item>
-            </argument>
-        </arguments>
-    </type>
-
-    <!-- Opciones de MassAction (opcional, en caso de que se requiera, aunque se trata de un grid solo lectura) -->
-    <type name="Ecommerce360\MasterLinks\Ui\Component\MassAction\Status\Options">
-        <arguments>
-            <argument name="data" xsi:type="array">
-                <item name="urlPath" xsi:type="string">*/*/massStatus</item>
-                <item name="paramName" xsi:type="string">status</item>
-                <item name="confirm" xsi:type="array">
-                    <item name="title" xsi:type="string" translate="true">Change Status</item>
-                    <item name="message" xsi:type="string" translate="true">Are you sure you want to change the status of the selected records?</item>
-                </item>
             </argument>
         </arguments>
     </type>
