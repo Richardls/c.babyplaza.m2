@@ -12,11 +12,11 @@ class DataProvider extends AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $collectionFactory,
+        CollectionFactory $masterlinkCollectionFactory,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $collectionFactory->create();
+        $this->collection = $masterlinkCollectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
