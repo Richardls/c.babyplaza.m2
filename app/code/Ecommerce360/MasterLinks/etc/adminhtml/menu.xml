@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ecommerce360_MasterLinks::main_menu_masterlinks"
+             title="Manage Master Links"
+             module="Ecommerce360_MasterLinks"
+             sortOrder="40"
+             parent="Ecommerce360_Tiendas::main_menu" 
+             action="masterlinks/index/index"
+             resource="Ecommerce360_MasterLinks::masterlinks_view"/>
+    </menu>
+</config>
