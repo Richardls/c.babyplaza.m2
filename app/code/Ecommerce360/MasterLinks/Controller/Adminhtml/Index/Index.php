@@ -1,16 +1,20 @@
 <?php
 namespace Ecommerce360\MasterLinks\Controller\Adminhtml\Index;
 
-class Index extends \Magento\Backend\App\Action
+use Magento\Backend\App\Action;
+use Magento\Framework\View\Result\PageFactory;
+
+class Index extends Action
 {
     protected $resultPageFactory;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        PageFactory $resultPageFactory = null
     ) {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
+        // Si no se inyecta el PageFactory, se obtiene mediante el ObjectManager
+        $this->resultPageFactory = $resultPageFactory ?: \Magento\Framework\App\ObjectManager::getInstance()->get(PageFactory::class);
     }
 
     public function execute()
