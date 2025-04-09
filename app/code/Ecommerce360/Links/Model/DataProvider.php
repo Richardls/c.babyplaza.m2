@@ -1,9 +1,10 @@
 <?php
 namespace Ecommerce360\Links\Model;
 
+use Magento\Ui\DataProvider\AbstractDataProvider;
 use Ecommerce360\Links\Model\ResourceModel\Link\CollectionFactory;
 
-class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+class DataProvider extends AbstractDataProvider
 {
     /**
      * @var array
