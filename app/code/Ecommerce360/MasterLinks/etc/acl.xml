@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Ecommerce360_MasterLinks::masterlinks_view" 
+                          title="Manage Master Links (View)" 
+                          sortOrder="70" />
+            </resource>
+        </resources>
+    </acl>
+</config>
