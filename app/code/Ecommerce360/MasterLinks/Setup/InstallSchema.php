@@ -1,28 +1,139 @@
-<?xml version="1.0"?>
-<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<?php
+namespace Ecommerce360\MasterLinks\Setup;
 
-    <table name="ecommerce360_masterlinks" resource="default" engine="innodb" comment="Master Links Table">
-        <column xsi:type="int" name="entity_id" identity="true" unsigned="true" nullable="false" comment="Primary Key"/>
-        <column xsi:type="varchar" name="sku_magento" nullable="true" length="64" comment="Magento SKU"/>
-        <column xsi:type="varchar" name="sku_store" nullable="true" length="255" comment="Store SKU"/>
-        <column xsi:type="text" name="link_url" nullable="true" comment="Product Link URL"/>
-        <column xsi:type="decimal" name="min_price" nullable="true" scale="2" precision="12" comment="Minimum Price"/>
-        <column xsi:type="decimal" name="list_price" nullable="true" scale="2" precision="12" comment="List Price"/>
-        <column xsi:type="varchar" name="store_domain" nullable="true" length="255" comment="Store Domain"/>
-        <column xsi:type="varchar" name="store_productname" nullable="true" length="255" comment="Store Product Name"/>
-        <column xsi:type="varchar" name="store_brand" nullable="true" length="255" comment="Store Brand"/>
-        <column xsi:type="smallint" name="availability" nullable="true" default="0" comment="Availability / In Stock"/>
-        <column xsi:type="text" name="image_url" nullable="true" comment="Image URL"/>
-        <column xsi:type="timestamp" name="created_at" nullable="true" default="CURRENT_TIMESTAMP" comment="Created At"/>
+use Magento\Framework\Setup\InstallSchemaInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\DB\Ddl\Table;
 
-        <!-- Campos para indicar si ya se usó este link -->
-        <column xsi:type="smallint" name="used_in_product_links" nullable="false" default="0" comment="Used in Product Links?"/>
-        <column xsi:type="smallint" name="used_in_price_history" nullable="false" default="0" comment="Used in Price History?"/>
+class InstallSchema implements InstallSchemaInterface
+{
+    /**
+     * Instala el esquema (tabla) para el módulo MasterLinks.
+     *
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @throws \Zend_Db_Exception
+     */
+    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $setup->startSetup();
 
-        <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="entity_id"/>
-        </constraint>
-    </table>
+        if (!$setup->tableExists('ecommerce360_masterlinks')) {
+            $table = $setup->getConnection()->newTable(
+                $setup->getTable('ecommerce360_masterlinks')
+            )
+            ->addColumn(
+                'entity_id',
+                Table::TYPE_INTEGER,
+                null,
+                [
+                    'identity' => true,
+                    'unsigned' => true,
+                    'nullable' => false,
+                    'primary'  => true
+                ],
+                'Primary Key'
+            )
+            ->addColumn(
+                'sku_magento',
+                Table::TYPE_TEXT,
+                64,
+                ['nullable' => true],
+                'Magento SKU'
+            )
+            ->addColumn(
+                'sku_store',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Store SKU'
+            )
+            ->addColumn(
+                'link_url',
+                Table::TYPE_TEXT,
+                '64k',
+                ['nullable' => true],
+                'Product Link URL'
+            )
+            ->addColumn(
+                'min_price',
+                Table::TYPE_DECIMAL,
+                '12,4',
+                ['nullable' => true, 'default' => '0.0000'],
+                'Minimum Price'
+            )
+            ->addColumn(
+                'list_price',
+                Table::TYPE_DECIMAL,
+                '12,4',
+                ['nullable' => true, 'default' => '0.0000'],
+                'List Price'
+            )
+            ->addColumn(
+                'store_domain',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Store Domain'
+            )
+            ->addColumn(
+                'store_productname',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Store Product Name'
+            )
+            ->addColumn(
+                'store_brand',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Store Brand'
+            )
+            ->addColumn(
+                'availability',
+                Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => true, 'default' => '0'],
+                'Availability / In Stock'
+            )
+            ->addColumn(
+                'image_url',
+                Table::TYPE_TEXT,
+                '64k',
+                ['nullable' => true],
+                'Image URL'
+            )
+            ->addColumn(
+                'created_at',
+                Table::TYPE_TIMESTAMP,
+                null,
+                [
+                    'nullable' => true,
+                    'default' => Table::TIMESTAMP_INIT
+                ],
+                'Created At'
+            )
+            ->addColumn(
+                'used_in_product_links',
+                Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => false, 'default' => '0'],
+                'Used in Product Links?'
+            )
+            ->addColumn(
+                'used_in_price_history',
+                Table::TYPE_SMALLINT,
+                null,
+                ['nullable' => false, 'default' => '0'],
+                'Used in Price History?'
+            )
+            ->setComment('Master Links Table');
 
-</schema>
+            $setup->getConnection()->createTable($table);
+        }
+
+        $setup->endSetup();
+    }
+}
