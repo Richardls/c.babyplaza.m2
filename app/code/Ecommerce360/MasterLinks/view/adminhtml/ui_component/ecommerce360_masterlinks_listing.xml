@@ -64,7 +64,7 @@
                 </item>
             </argument>
         </column>
-        <column name="sku_magento">
+        <column name="magento_sku">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Magento SKU</item>

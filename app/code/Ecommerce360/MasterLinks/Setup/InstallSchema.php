@@ -36,7 +36,7 @@ class InstallSchema implements InstallSchemaInterface
                 'Primary Key'
             )
             ->addColumn(
-                'sku_magento',
+                'magento_sku',
                 Table::TYPE_TEXT,
                 64,
                 ['nullable' => true],
