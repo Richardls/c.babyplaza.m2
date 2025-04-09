@@ -20,7 +20,7 @@
     </virtualType>
 
     <!-- Definición del DataProvider para MasterLinks -->
-    <virtualType name="Ecommerce360MasterLinksFilterPoollement\UiComponent\DataProvider\DataProvider">
+    <virtualType name="Ecommerce360MasterLinksFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
             <argument name="collection" xsi:type="object" shared="false">Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">Ecommerce360MasterLinksFilterPool</argument>
