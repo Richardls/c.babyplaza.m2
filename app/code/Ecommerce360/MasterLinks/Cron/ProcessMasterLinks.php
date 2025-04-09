@@ -14,29 +14,29 @@ class ProcessMasterLinks
         LoggerInterface $logger
     ) {
         $this->resource = $resource;
-        $this->logger = $logger;
+        $this->logger   = $logger;
     }
 
     public function execute()
     {
         $this->logger->info('MasterLinks CRON: Inicia procesamiento de registros.');
         try {
-            $connection     = $this->resource->getConnection();
-            $stagingTable   = $this->resource->getTableName('ecommerce360_scrapyintegration');
-            $masterTable    = $this->resource->getTableName('ecommerce360_masterlinks');
+            $connection   = $this->resource->getConnection();
+            $stagingTable = $this->resource->getTableName('ecommerce360_scrapyintegration');
+            $masterTable  = $this->resource->getTableName('ecommerce360_masterlinks');
 
-            // Seleccionar registros en staging donde sku_magento no sea nulo ni vacío.
+            // Seleccionar registros en staging donde magento_sku no sea nulo ni vacío.
             $select = $connection->select()
                 ->from($stagingTable)
-                ->where('sku_magento IS NOT NULL')
-                ->where("TRIM(sku_magento) <> ''");
+                ->where('magento_sku IS NOT NULL')
+                ->where("TRIM(magento_sku) <> ''");
 
             $records = $connection->fetchAll($select);
 
             foreach ($records as $record) {
-                // Prepara los datos a insertar en MasterLinks.
+                // Prepara los datos usando el nombre de la columna 'magento_sku'
                 $data = [
-                    'sku_magento'         => $record['sku_magento'],
+                    'magento_sku'         => $record['magento_sku'],
                     'sku_store'           => $record['sku_store'],
                     'link_url'            => $record['link_url'],
                     'min_price'           => $record['min_price'],
@@ -44,19 +44,18 @@ class ProcessMasterLinks
                     'store_domain'        => $record['store_domain'],
                     'store_productname'   => $record['store_productname'],
                     'store_brand'         => $record['store_brand'],
-                    'availability'        => $record['in_stock'], // Ajusta si es 'in_stock' o 'availability'
-                    'image_url'           => $record['image_url_01'], // o el campo correspondiente
+                    'availability'        => $record['in_stock'], // Asegúrate que este campo coincide (o ajusta según corresponda)
+                    'image_url'           => $record['image_url_01'], // Ajusta el nombre si fuese distinto
                     'created_at'          => $record['created_at'],
-                    // Si utilizas los flags para saber si ya se usó en otros módulos, puedes dejarlos en 0
+                    // Inicialmente, los flags se establecen en 0.
                     'used_in_product_links' => 0,
                     'used_in_price_history' => 0,
                 ];
 
-                // Aquí podrías implementar una lógica de upsert: 
-                // Por simplicidad, se hace un insert.
+                // Insertar registro en la tabla MasterLinks
                 $connection->insert($masterTable, $data);
 
-                // Una vez transferido, eliminamos el registro de staging.
+                // Eliminar el registro de staging después de transferirlo
                 $connection->delete($stagingTable, ['link_id = ?' => $record['link_id']]);
             }
 
