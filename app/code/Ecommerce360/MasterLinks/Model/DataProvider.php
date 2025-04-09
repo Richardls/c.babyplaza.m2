@@ -6,6 +6,9 @@ use Ecommerce360\MasterLinks\Model\ResourceModel\MasterLink\CollectionFactory;
 
 class DataProvider extends AbstractDataProvider
 {
+    /**
+     * @var array
+     */
     protected $loadedData;
 
     public function __construct(

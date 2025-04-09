@@ -38,6 +38,14 @@ class Collection extends MasterLinkCollection implements SearchResultInterface
     {
         $this->aggregations = $aggregations;
     }
+
+    public function getAllIds($limit = null, $offset = null)
+    {
+        return $this->getConnection()->fetchCol(
+            $this->_getAllIdsSelect($limit, $offset),
+            $this->_bindParams
+        );
+    }
     
     public function getSearchCriteria()
     {
