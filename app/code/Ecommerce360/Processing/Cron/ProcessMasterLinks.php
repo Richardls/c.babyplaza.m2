@@ -33,17 +33,17 @@ class ProcessMasterLinks
             $masterTable = $this->connection->getTableName('ecommerce360_masterlinks');
             $productsLinksTable = $this->connection->getTableName('ecommerce360_productslinks');
 
-            // Seleccionar el link más reciente para cada combinación (magento_sku, store_domain)
+            // Seleccionar el link más reciente para cada combinación (sku_magento, store_domain)
             // Usamos un subquery para obtener el máximo created_at para cada grupo.
             $subQuery = $this->connection->select()
-                ->from($masterTable, ['magento_sku', 'store_domain', 'latest_created' => new \Zend_Db_Expr('MAX(created_at)')])
-                ->group(['magento_sku', 'store_domain']);
+                ->from($masterTable, ['sku_magento', 'store_domain', 'latest_created' => new \Zend_Db_Expr('MAX(created_at)')])
+                ->group(['sku_magento', 'store_domain']);
 
             $select = $this->connection->select()
                 ->from(['m1' => $masterTable])
                 ->joinInner(
                     ['m2' => $subQuery],
-                    'm1.magento_sku = m2.magento_sku AND m1.store_domain = m2.store_domain AND m1.created_at = m2.latest_created',
+                    'm1.sku_magento = m2.sku_magento AND m1.store_domain = m2.store_domain AND m1.created_at = m2.latest_created',
                     []
                 );
 
@@ -51,7 +51,7 @@ class ProcessMasterLinks
             $this->logger->info('Processing MasterLinks CRON: Found ' . count($records) . ' groups.');
 
             foreach ($records as $record) {
-                $magentoSku = $record['magento_sku'];
+                $magentoSku = $record['sku_magento'];
                 $storeDomain = $record['store_domain'];
 
                 // Verificar si ya existe un registro para este producto en ProductsLinks
