@@ -56,11 +56,11 @@ class InstallSchema implements InstallSchemaInterface
                     'Store Product Name'
                 )
                 ->addColumn(
-                    'brand',
+                    'store_brand',
                     Table::TYPE_TEXT,
                     255,
                     ['nullable' => true],
-                    'Brand'
+                    'store_brand'
                 )
                 ->addColumn(
                     'link_url',

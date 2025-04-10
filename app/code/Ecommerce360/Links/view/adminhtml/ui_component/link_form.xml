@@ -120,13 +120,13 @@
             </argument>
         </field>
 
-        <field name="brand">
+        <field name="store_brand">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="label" xsi:type="string" translate="true">Marca</item>
-                    <item name="dataScope" xsi:type="string">brand</item>
+                    <item name="dataScope" xsi:type="string">store_brand</item>
                 </item>
             </argument>
         </field>
