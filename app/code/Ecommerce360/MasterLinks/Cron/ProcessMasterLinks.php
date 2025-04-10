@@ -25,18 +25,18 @@ class ProcessMasterLinks
             $stagingTable = $this->resource->getTableName('ecommerce360_scrapyintegration');
             $masterTable  = $this->resource->getTableName('ecommerce360_masterlinks');
 
-            // Seleccionar registros en staging donde magento_sku no sea nulo ni vacío.
+            // Seleccionar registros en staging donde sku_magento no sea nulo ni vacío.
             $select = $connection->select()
                 ->from($stagingTable)
-                ->where('magento_sku IS NOT NULL')
-                ->where("TRIM(magento_sku) <> ''");
+                ->where('sku_magento IS NOT NULL')
+                ->where("TRIM(sku_magento) <> ''");
 
             $records = $connection->fetchAll($select);
 
             foreach ($records as $record) {
-                // Prepara los datos usando el nombre de la columna 'magento_sku'
+                // Prepara los datos usando el nombre de la columna 'sku_magento'
                 $data = [
-                    'magento_sku'         => $record['magento_sku'],
+                    'sku_magento'         => $record['sku_magento'],
                     'sku_store'           => $record['sku_store'],
                     'link_url'            => $record['link_url'],
                     'min_price'           => $record['min_price'],
