@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/crontab.xsd">
     <group id="default">
         <job name="ecommerce360_processing_masterlinks" instance="Ecommerce360\Processing\Cron\ProcessMasterLinks" method="execute">
-            <schedule>0 * * * *</schedule>
+            <schedule>0/5 * * * *</schedule>
         </job>
     </group>
 </config>
