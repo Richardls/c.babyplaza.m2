@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/crontab.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/crontab.xsd">
     <group id="default">
-        <job name="ecommerce360_processing_urls" instance="Ecommerce360\Processing\Cron\ProcessUrls" method="execute">
-            <schedule>*/2 * * * *</schedule>
-        </job>
-        <job name="ecommerce360_process_pending_urls" instance="Ecommerce360\Processing\Cron\ProcessPendingUrls" method="execute">
-            <schedule>*/5 * * * *</schedule>
+        <job name="ecommerce360_processing_masterlinks" instance="Ecommerce360\Processing\Cron\ProcessMasterLinks" method="execute">
+            <schedule>0 * * * *</schedule>
         </job>
     </group>
 </config>
