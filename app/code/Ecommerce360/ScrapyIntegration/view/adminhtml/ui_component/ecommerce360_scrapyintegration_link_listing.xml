@@ -212,7 +212,7 @@
             </argument>
         </column>
 
-        <column name="magento_sku">
+        <column name="sku_magento">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>

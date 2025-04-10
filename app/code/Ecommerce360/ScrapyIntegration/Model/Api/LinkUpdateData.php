@@ -28,12 +28,12 @@ class LinkUpdateData extends DataObject implements LinkUpdateDataInterface
 
     public function getMagentoSku()
     {
-        return $this->getData('magento_sku');
+        return $this->getData('sku_magento');
     }
 
     public function setMagentoSku($magentoSku)
     {
-        return $this->setData('magento_sku', $magentoSku);
+        return $this->setData('sku_magento', $magentoSku);
     }
 
 

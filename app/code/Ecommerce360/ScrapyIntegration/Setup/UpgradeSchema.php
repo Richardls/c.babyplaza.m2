@@ -25,10 +25,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $tableName = $setup->getTable('ecommerce360_scrapyintegration');
 
             if ($connection->isTableExists($tableName)) {
-                // Agregar la columna 'magento_sku'
+                // Agregar la columna 'sku_magento'
                 $connection->addColumn(
                     $tableName,
-                    'magento_sku',
+                    'sku_magento',
                     [
                         'type' => Table::TYPE_TEXT,
                         'length' => 64,

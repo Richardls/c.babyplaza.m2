@@ -40,7 +40,7 @@ class LinkRepository implements LinkRepositoryInterface
 
         $link->setData('store_domain', $data->getStoreDomain());
         $link->setData('sku_store', $data->getSkuStore());
-        $link->setData('magento_sku', $data->getMagentoSku());
+        $link->setData('sku_magento', $data->getMagentoSku());
         $link->setData('store_productname', $data->getStoreProductname());
         $link->setData('store_brand', $data->getStoreBrand());
         $link->setData('link_url', $data->getLinkUrl());
@@ -66,7 +66,7 @@ class LinkRepository implements LinkRepositoryInterface
             'link_id',
             'store_domain',
             'sku_store',
-            'magento_sku',
+            'sku_magento',
             'store_productname',
             'store_brand',
             'link_url',
@@ -106,7 +106,7 @@ class LinkRepository implements LinkRepositoryInterface
         // Set the data from the input
         $link->setData('store_domain', $data->getStoreDomain());
         $link->setData('sku_store', $data->getSkuStore());
-        $link->setData('magento_sku', $data->getMagentoSku());
+        $link->setData('sku_magento', $data->getMagentoSku());
         $link->setData('store_productname', $data->getStoreProductname());
         $link->setData('store_brand', $data->getStoreBrand());
         $link->setData('link_url', $data->getLinkUrl());

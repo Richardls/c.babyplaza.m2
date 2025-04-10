@@ -27,10 +27,10 @@ class UpdateMagentoSku
             $connection = $this->resource->getConnection();
             $tableName = $this->resource->getTableName('ecommerce360_scrapyintegration');
             
-            // Seleccionar los registros donde el campo magento_sku es nulo o vacío.
+            // Seleccionar los registros donde el campo sku_magento es nulo o vacío.
             $select = $connection->select()
                 ->from($tableName)
-                ->where('magento_sku IS NULL OR magento_sku = ""');
+                ->where('sku_magento IS NULL OR sku_magento = ""');
             
             $records = $connection->fetchAll($select);
             
@@ -43,7 +43,7 @@ class UpdateMagentoSku
                     if ($magentoSku) {
                         $connection->update(
                             $tableName,
-                            ['magento_sku' => $magentoSku],
+                            ['sku_magento' => $magentoSku],
                             ['link_id = ?' => $record['link_id']]
                         );
                         $this->logger->info(sprintf(

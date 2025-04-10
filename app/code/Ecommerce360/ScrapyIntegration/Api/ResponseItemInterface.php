@@ -6,7 +6,7 @@ interface ResponseItemInterface
     const DATA_LINK_ID = 'link_id';
     const DATA_STORE_DOMAIN = 'store_domain';
     const DATA_SKU_STORE = 'sku_store';
-    const DATA_MAGENTO_SKU = 'magento_sku';
+    const DATA_SKU_MAGENTO = 'sku_magento';
     const DATA_STORE_PRODUCT_NAME = 'store_productname';
     const DATA_STORE_BRAND = 'store_brand';
     const DATA_LINK_URL = 'link_url';

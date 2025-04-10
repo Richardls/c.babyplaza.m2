@@ -73,7 +73,7 @@ class InstallSchema implements InstallSchemaInterface
                     'List Price'
                 )
                 ->addColumn(
-                    'magento_sku',
+                    'sku_magento',
                     Table::TYPE_TEXT,
                     64,
                     ['nullable' => true, 'default' => null],

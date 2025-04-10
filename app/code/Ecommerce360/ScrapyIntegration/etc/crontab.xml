@@ -6,7 +6,7 @@
         <!-- ... -->
 
         <!-- Nuevo CRON para actualizar automaticamente el Magento SKU en ScrapyIntegration -->
-        <job name="ecommerce360_update_magento_sku" instance="Ecommerce360\ScrapyIntegration\Cron\UpdateMagentoSku" method="execute">
+        <job name="ecommerce360_update_sku_magento" instance="Ecommerce360\ScrapyIntegration\Cron\UpdateMagentoSku" method="execute">
             <schedule>*/5 * * * *</schedule> <!-- Cada 10 minutos, ajustar según sea necesario -->
         </job>
     </group>
